@@ -1,6 +1,7 @@
 numpy>=1.26
 pandas>=2.1
 matplotlib>=3.8
+scipy>=1.11
 arviz>=0.18
 pymc>=5.15
 pytensor>=2.20

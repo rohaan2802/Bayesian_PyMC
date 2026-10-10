@@ -1,0 +1,152 @@
+{
+  "count_report": [
+    {
+      "model": "Poisson",
+      "obs_mean": 2.95,
+      "ppc_mean": 2.96,
+      "obs_zero_rate": 0.2,
+      "ppc_zero_rate": 0.053,
+      "obs_p95": 6.05,
+      "ppc_p95": 6.0,
+      "mae_vs_obs_profile": 1.817
+    },
+    {
+      "model": "ZIP",
+      "obs_mean": 2.95,
+      "ppc_mean": 2.821,
+      "obs_zero_rate": 0.2,
+      "ppc_zero_rate": 0.231,
+      "obs_p95": 6.05,
+      "ppc_p95": 7.0,
+      "mae_vs_obs_profile": 1.834
+    }
+  ],
+  "cont_report": [
+    {
+      "model": "Gaussian",
+      "obs_mean": 14.546,
+      "ppc_mean": 14.534,
+      "obs_zero_rate": 0.0,
+      "ppc_zero_rate": 0.0,
+      "obs_p95": 16.31,
+      "ppc_p95": 23.195,
+      "mae_vs_obs_profile": 2.123
+    },
+    {
+      "model": "Student-t",
+      "obs_mean": 14.546,
+      "ppc_mean": 13.709,
+      "obs_zero_rate": 0.0,
+      "ppc_zero_rate": 0.0,
+      "obs_p95": 16.31,
+      "ppc_p95": 17.132,
+      "mae_vs_obs_profile": 1.964
+    }
+  ],
+  "utility": [
+    {
+      "staff_level": 0,
+      "E_shortfall": 3.077,
+      "P_shortfall": 0.954,
+      "expected_total_cost": 10.77
+    },
+    {
+      "staff_level": 1,
+      "E_shortfall": 2.123,
+      "P_shortfall": 0.824,
+      "expected_total_cost": 8.431
+    },
+    {
+      "staff_level": 2,
+      "E_shortfall": 1.3,
+      "P_shortfall": 0.589,
+      "expected_total_cost": 6.548
+    },
+    {
+      "staff_level": 3,
+      "E_shortfall": 0.711,
+      "P_shortfall": 0.365,
+      "expected_total_cost": 5.487
+    },
+    {
+      "staff_level": 4,
+      "E_shortfall": 0.345,
+      "P_shortfall": 0.192,
+      "expected_total_cost": 5.209
+    },
+    {
+      "staff_level": 5,
+      "E_shortfall": 0.153,
+      "P_shortfall": 0.09,
+      "expected_total_cost": 5.537
+    },
+    {
+      "staff_level": 6,
+      "E_shortfall": 0.064,
+      "P_shortfall": 0.042,
+      "expected_total_cost": 6.222
+    },
+    {
+      "staff_level": 7,
+      "E_shortfall": 0.022,
+      "P_shortfall": 0.015,
+      "expected_total_cost": 7.077
+    },
+    {
+      "staff_level": 8,
+      "E_shortfall": 0.006,
+      "P_shortfall": 0.005,
+      "expected_total_cost": 8.023
+    }
+  ],
+  "best_staff": 4,
+  "weekday": [
+    {
+      "weekday_index": 0,
+      "label": "Mon",
+      "mean_lambda": 2.807,
+      "hdi_3%": 1.987,
+      "hdi_97%": 3.653
+    },
+    {
+      "weekday_index": 1,
+      "label": "Tue",
+      "mean_lambda": 2.758,
+      "hdi_3%": 1.944,
+      "hdi_97%": 3.594
+    },
+    {
+      "weekday_index": 2,
+      "label": "Wed",
+      "mean_lambda": 2.934,
+      "hdi_3%": 2.119,
+      "hdi_97%": 3.713
+    },
+    {
+      "weekday_index": 3,
+      "label": "Thu",
+      "mean_lambda": 3.043,
+      "hdi_3%": 2.246,
+      "hdi_97%": 3.932
+    },
+    {
+      "weekday_index": 4,
+      "label": "Fri",
+      "mean_lambda": 3.313,
+      "hdi_3%": 2.455,
+      "hdi_97%": 4.433
+    }
+  ],
+  "lfo": {
+    "train_days": 30.0,
+    "test_days": 10.0,
+    "posterior_mean_lambda_train": 2.834,
+    "mean_log_pred_density_test": -2.46,
+    "test_mean": 3.3,
+    "abs_error_vs_train_mean_lambda": 2.133
+  },
+  "loo_count_weights": {
+    "ZIP": 0.87,
+    "Poisson": 0.13
+  }
+}

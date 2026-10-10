@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Operations Decision Dashboard | Bayesian Service Center</title>
+  <link rel="stylesheet" href="assets/css/site.css">
+  <style>
+    .live-title{font-size:clamp(2.1rem,5vw,3.2rem);margin:0 0 .4rem;font-family:var(--display)}
+    .kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+    @media(max-width:900px){.kpi{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.kpi{grid-template-columns:1fr}}
+    .kpi .card strong{display:block;font-size:1.5rem;margin-top:.35rem}
+  </style>
+</head>
+<body>
+  <header class="topbar"><div class="wrap">
+    <a class="brand" href="index.html">Bayesian Service Center · PyMC</a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="notebook-report.html">Full Report</a>
+      <a href="https://github.com/rohaan2802/Bayesian-Campus-Service-Center-PyMC">Repo</a>
+    </nav>
+  </div></header>
+  <main class="wrap" style="padding:2rem 0 3rem">
+    <h1 class="live-title">Operations Decision Dashboard</h1>
+    <p class="section-lead">Saturated decision view generated from the Bayesian notebook outputs.</p>
+    <div class="kpi">
+      <article class="card"><h3>Poisson λ</h3><strong>2.955</strong><p>Baseline daily demand</p></article>
+      <article class="card"><h3>Best count model</h3><strong>ZIP</strong><p>LOO/weight preferred</p></article>
+      <article class="card"><h3>Student-t μ</h3><strong>13.71 min</strong><p>Typical resolution time</p></article>
+      <article class="card"><h3>Utility-optimal staff</h3><strong>4</strong><p>Relative cost minimum</p></article>
+    </div>
+    <section style="margin-top:1.5rem">
+      <h2>Calibration & policy visuals</h2>
+      <div class="grid-2" style="margin-top:1rem">
+        <figure class="shot"><figcaption><strong>PIT — count models</strong></figcaption><img src="docs/screenshots/29-pit-count-models.png" alt="PIT counts"></figure>
+        <figure class="shot"><figcaption><strong>PIT — continuous models</strong></figcaption><img src="docs/screenshots/30-pit-continuous-models.png" alt="PIT continuous"></figure>
+        <figure class="shot"><figcaption><strong>Staffing utility</strong></figcaption><img src="docs/screenshots/31-staffing-utility-curve.png" alt="Utility"></figure>
+        <figure class="shot"><figcaption><strong>Weekday hierarchical proxy</strong></figcaption><img src="docs/screenshots/32-weekday-hierarchical-rates.png" alt="Weekday"></figure>
+        <figure class="shot"><figcaption><strong>Model weights</strong></figcaption><img src="docs/screenshots/33-model-comparison-weights.png" alt="Weights"></figure>
+        <figure class="shot"><figcaption><strong>Leave-future-out split</strong></figcaption><img src="docs/screenshots/36-leave-future-out-split.png" alt="LFO"></figure>
+        <figure class="shot"><figcaption><strong>Executive one-pager</strong></figcaption><img src="docs/screenshots/34-executive-one-pager.png" alt="Executive"></figure>
+        <figure class="shot"><figcaption><strong>Completeness matrix</strong></figcaption><img src="docs/screenshots/35-completeness-matrix.png" alt="Complete"></figure>
+      </div>
+    </section>
+    <section style="margin-top:1.5rem">
+      <h2>Utility table</h2>
+      <table class="dataframe dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>staff_level</th>
+      <th>E_shortfall</th>
+      <th>P_shortfall</th>
+      <th>expected_total_cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>3.077</td>
+      <td>0.954</td>
+      <td>10.770</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2.123</td>
+      <td>0.824</td>
+      <td>8.431</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>1.300</td>
+      <td>0.589</td>
+      <td>6.548</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.711</td>
+      <td>0.365</td>
+      <td>5.487</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.345</td>
+      <td>0.192</td>
+      <td>5.209</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>0.153</td>
+      <td>0.090</td>
+      <td>5.537</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>0.064</td>
+      <td>0.042</td>
+      <td>6.222</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>0.022</td>
+      <td>0.015</td>
+      <td>7.077</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>0.006</td>
+      <td>0.005</td>
+      <td>8.023</td>
+    </tr>
+  </tbody>
+</table>
+    </section>
+  </main>
+</body>
+</html>

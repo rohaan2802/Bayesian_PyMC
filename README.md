@@ -11,10 +11,13 @@
 
 # Live Link
 
-> Use these official entry points for the live project, report, source code, and notebook.
+> Use these official entry points for the live project, report, dashboard, source code, and notebook.
 
 ## Live Website (GitHub Pages)
 **https://rohaan2802.github.io/Bayesian-Campus-Service-Center-PyMC/**
+
+## Operations Decision Dashboard
+**https://rohaan2802.github.io/Bayesian-Campus-Service-Center-PyMC/dashboard.html**
 
 ## Full Executed Notebook Report
 **https://rohaan2802.github.io/Bayesian-Campus-Service-Center-PyMC/notebook-report.html**
@@ -26,7 +29,7 @@
 **https://github.com/rohaan2802/Bayesian-Campus-Service-Center-PyMC/blob/main/notebook/i222327_A01_A_SM.ipynb**
 
 ## Screenshot Gallery
-Jump to [Section 12 — Screenshot gallery](#12-screenshot-gallery-28) in this README.
+Jump to [Section 12 — Screenshot gallery](#12-screenshot-gallery-36) in this README.
 
 ---
 
@@ -39,10 +42,13 @@ The submission contains:
 - every required assignment case (A–G / Cases 1–8 + discussion)
 - **Extension Pack A** (Cases 9–15): diagnostics, LOO, sensitivity, influence, weekly demand
 - **Extension Pack B** (Cases 16–20): capacity policy, SLA coverage, optimization checklist, viva card
-- a responsive GitHub Pages landing site
-- a responsive full HTML notebook report
-- **28** labeled screenshots
+- **Extension Pack C** (Cases 21–30): PPC report cards, PIT calibration, staffing utility, weekday hierarchical proxy, leave-future-out check, executive one-pager, saturation matrix
+- responsive GitHub Pages landing site + operations dashboard
+- responsive full HTML notebook report
+- **36** labeled screenshots
+- machine-readable exports (`enhanced_results.json`, `decision_extension.json`, `saturation_results.json`)
 - reproducible dependencies and a fixed random seed (`2026`)
+- explicit hard-stop: further upgrades need new data, not more notebook sections
 
 ---
 
@@ -121,13 +127,15 @@ Bayesian-Campus-Service-Center-PyMC/
 ├── .gitignore
 ├── .nojekyll
 ├── index.html
+├── dashboard.html
 ├── notebook-report.html
 ├── notebook/i222327_A01_A_SM.ipynb
 ├── assets/css/site.css
 └── docs/
-    ├── screenshots/             # 28 figures
+    ├── screenshots/             # 36 figures
     ├── enhanced_results.json
-    └── decision_extension.json
+    ├── decision_extension.json
+    └── saturation_results.json
 ```
 
 ---
@@ -159,6 +167,18 @@ Bayesian-Campus-Service-Center-PyMC/
 18. Computational diagnostics snapshot  
 19. Workflow optimization checklist  
 20. Viva / portfolio defense card  
+
+### Extension pack C (saturation)
+21. PPC report cards for all core models  
+22. PIT calibration plots  
+23. Decision-analytic staffing utility (optimum = 4 under relative costs)  
+24. Weekday hierarchical demand proxy  
+25. Leave-future-out style predictive check  
+26. Count-model comparison weights  
+27. Continuous LOO snapshot  
+28. Executive one-pager  
+29. Completeness / saturation matrix  
+30. Hard-stop table (what requires new data)  
 
 ---
 
@@ -217,6 +237,16 @@ Student-*t* μ HDI ≈ **[13.135, 14.259]**
 | [13.5, 14.5] | Undecided |
 | [13.8, 14.2] | Undecided |
 | [12.5, 15.5] | Accept practical equivalence |
+
+### 7.8 Saturation-layer decision outputs
+
+| Output | Result |
+|---|---|
+| ZIP vs Poisson zero-rate (PPC) | 0.231 vs 0.053 (observed 0.200) |
+| Utility-optimal staff capacity | **4** request-slots/day (relative cost model) |
+| Leave-future-out test mean | 3.3 requests/day over last 10 days |
+| LFO mean log predictive density | −2.46 |
+| Weekday proxy rates | broadly similar across Mon–Fri under partial pooling |
 
 ---
 
@@ -281,7 +311,7 @@ Responsive safeguards:
 
 ---
 
-## 12. Screenshot gallery (28)
+## 12. Screenshot gallery (36)
 
 Headings are placed **above** each screenshot.
 
@@ -430,6 +460,48 @@ Probability of meeting common minute-based service targets under Student-*t*.
 Sampler/workflow optimizations used for reproducibility and reviewer clarity.
 
 ![28 optimization checklist](docs/screenshots/28-optimization-checklist.png)
+
+### 12.4 Saturation-layer figures
+
+### 29 — PIT calibration (count models)
+Probability integral transform histograms for Poisson vs ZIP.
+
+![29 pit counts](docs/screenshots/29-pit-count-models.png)
+
+### 30 — PIT calibration (continuous models)
+PIT histograms for Gaussian vs Student-*t* resolution-time models.
+
+![30 pit continuous](docs/screenshots/30-pit-continuous-models.png)
+
+### 31 — Staffing utility curve
+Expected total cost vs staff capacity; minimum at staff level 4 under the stated relative costs.
+
+![31 utility](docs/screenshots/31-staffing-utility-curve.png)
+
+### 32 — Weekday hierarchical demand rates
+Partially pooled day-type rates using a repeating weekday proxy.
+
+![32 weekday](docs/screenshots/32-weekday-hierarchical-rates.png)
+
+### 33 — Model comparison weights
+Relative predictive weights for ZIP vs Poisson.
+
+![33 weights](docs/screenshots/33-model-comparison-weights.png)
+
+### 34 — Executive one-pager
+Single-screen saturated workflow summary for viva/portfolio use.
+
+![34 executive](docs/screenshots/34-executive-one-pager.png)
+
+### 35 — Completeness matrix
+Saturation declaration across all enhancement surfaces.
+
+![35 completeness](docs/screenshots/35-completeness-matrix.png)
+
+### 36 — Leave-future-out split
+Chronological 30/10 train-test stress check for demand forecasting.
+
+![36 lfo](docs/screenshots/36-leave-future-out-split.png)
 
 ---
 
