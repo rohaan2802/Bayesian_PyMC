@@ -5,7 +5,7 @@
 **Semester:** Fall 2026  
 **Instructor:** Dr. Muhammad Rizwan  
 **Source notebook:** `notebook/i222327_A01_A_SM.ipynb` (156 cells)  
-**Repository:** [`Bayesian-PyMC`](https://github.com/rohaan2802/Bayesian-PyMC)
+**Repository:** [`Bayesian_PyMC`](https://github.com/rohaan2802/Bayesian_PyMC)
 
 ---
 
@@ -14,19 +14,19 @@
 > Final project entry points — use these links for review, demo, and submission.
 
 ## Live Website
-**https://rohaan2802.github.io/Bayesian-PyMC/**
+**https://rohaan2802.github.io/Bayesian_PyMC/**
 
 ## Operations Decision Dashboard
-**https://rohaan2802.github.io/Bayesian-PyMC/dashboard.html**
+**https://rohaan2802.github.io/Bayesian_PyMC/dashboard.html**
 
 ## Full Executed Notebook Report
-**https://rohaan2802.github.io/Bayesian-PyMC/notebook-report.html**
+**https://rohaan2802.github.io/Bayesian_PyMC/notebook-report.html**
 
 ## GitHub Repository
-**https://github.com/rohaan2802/Bayesian-PyMC**
+**https://github.com/rohaan2802/Bayesian_PyMC**
 
 ## Source Notebook
-**https://github.com/rohaan2802/Bayesian-PyMC/blob/main/notebook/i222327_A01_A_SM.ipynb**
+**https://github.com/rohaan2802/Bayesian_PyMC/blob/main/notebook/i222327_A01_A_SM.ipynb**
 
 ## Screenshot Gallery
 See [Section 8](#8-screenshot-gallery-aligned-to-final-notebook) below.
@@ -130,7 +130,7 @@ Sampler defaults: `draws=1000`, `tune=1000`, `chains=2`, `target_accept=0.9`
 ## 5. Repository layout
 
 ```text
-Bayesian-PyMC/
+Bayesian_PyMC/
 ├── README.md
 ├── LICENSE
 ├── requirements.txt
@@ -158,9 +158,9 @@ Python · NumPy · pandas · Matplotlib · SciPy · PyMC · PyTensor · ArviZ ·
 
 | Field | Value |
 |---|---|
-| Name | `Bayesian-PyMC` |
+| Name | `Bayesian_PyMC` |
 | Description | MT-2002 Bayesian analysis of campus service-center demand and resolution times with PyMC (Poisson/ZIP, Gaussian/Student-t, ROPE, LOO, SLA tools). |
-| Website | https://rohaan2802.github.io/Bayesian-PyMC/ |
+| Website | https://rohaan2802.github.io/Bayesian_PyMC/ |
 | Topics | bayesian-statistics, pymc, arviz, mcmc, rope, jupyter-notebook, github-pages, python, mt-2002 |
 
 ---
