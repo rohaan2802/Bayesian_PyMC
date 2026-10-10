@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>i222327 | Bayesian Statistical Modeling with PyMC</title>
+  <title>Bayesian Campus Service Center Analysis | PyMC</title>
   <meta name="description" content="MT-2002 Assignment 1: Bayesian demand and resolution-time analysis for a campus service center using PyMC, ArviZ, and posterior predictive checks.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,8 +13,9 @@
 <body>
   <header class="topbar">
     <div class="wrap">
-      <a class="brand" href="#top">i222327 · MT-2002</a>
+      <a class="brand" href="#top">Bayesian Service Center · PyMC</a>
       <nav class="nav" aria-label="Primary">
+        <a href="#live-link">Live Link</a>
         <a href="#overview">Overview</a>
         <a href="#models">Models</a>
         <a href="#results">Results</a>
@@ -42,18 +43,8 @@
           </p>
           <div class="actions">
             <a class="btn btn-primary" href="notebook-report.html">Open interactive HTML report</a>
-            <a class="btn btn-secondary" href="https://github.com/rohaan2802/i222327_A01_A_SM">GitHub repository</a>
+            <a class="btn btn-secondary" href="https://github.com/rohaan2802/Bayesian-Campus-Service-Center-PyMC">GitHub repository</a>
             <a class="btn btn-secondary" href="notebook/i222327_A01_A_SM.ipynb">Source notebook</a>
-          </div>
-          <div class="panel" style="margin-top:1.1rem">
-            <h2>Live Link</h2>
-            <p style="margin:0 0 0.45rem;font-size:1.15rem;font-weight:700;word-break:break-word">
-              <a href="https://rohaan2802.github.io/i222327_A01_A_SM/">https://rohaan2802.github.io/i222327_A01_A_SM/</a>
-            </p>
-            <p style="margin:0;color:var(--muted);font-size:0.95rem;word-break:break-word">
-              Full report:
-              <a href="https://rohaan2802.github.io/i222327_A01_A_SM/notebook-report.html">notebook-report.html</a>
-            </p>
           </div>
         </div>
         <aside class="panel" aria-label="Key findings">
@@ -65,6 +56,31 @@
             <li><strong>ROPE undecided at 14 min</strong><span>HDI [13.22, 14.27] vs ROPE [13.5, 14.5]</span></li>
           </ul>
         </aside>
+      </div>
+    </section>
+
+    <section id="live-link">
+      <div class="wrap">
+        <h2 style="font-size:clamp(2rem,4vw,2.8rem);margin-bottom:0.35rem">Live Link</h2>
+        <p class="section-lead">Official project entry points — website, report, repository, and source notebook.</p>
+        <div class="grid-2">
+          <article class="card">
+            <h3>Live Website (GitHub Pages)</h3>
+            <p><a href="https://rohaan2802.github.io/Bayesian-Campus-Service-Center-PyMC/">https://rohaan2802.github.io/Bayesian-Campus-Service-Center-PyMC/</a></p>
+          </article>
+          <article class="card">
+            <h3>Full Executed Notebook Report</h3>
+            <p><a href="https://rohaan2802.github.io/Bayesian-Campus-Service-Center-PyMC/notebook-report.html">https://rohaan2802.github.io/Bayesian-Campus-Service-Center-PyMC/notebook-report.html</a></p>
+          </article>
+          <article class="card">
+            <h3>GitHub Repository</h3>
+            <p><a href="https://github.com/rohaan2802/Bayesian-Campus-Service-Center-PyMC">https://github.com/rohaan2802/Bayesian-Campus-Service-Center-PyMC</a></p>
+          </article>
+          <article class="card">
+            <h3>Source Notebook (.ipynb)</h3>
+            <p><a href="https://github.com/rohaan2802/Bayesian-Campus-Service-Center-PyMC/blob/main/notebook/i222327_A01_A_SM.ipynb">notebook/i222327_A01_A_SM.ipynb</a></p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -163,7 +179,7 @@
     <section id="gallery">
       <div class="wrap">
         <h2>Visual gallery</h2>
-        <p class="section-lead">Twenty-five project screenshots covering exploratory plots, MCMC diagnostics, model comparison, ROPE analysis, enhancement boards, and delivery stack. Each heading appears above its image.</p>
+        <p class="section-lead">Twenty-eight project screenshots covering exploratory plots, MCMC diagnostics, model comparison, ROPE analysis, SLA/capacity tools, and delivery stack. Each heading appears above its image.</p>
         <div class="grid-2">
           <figure class="shot"><figcaption><strong>01 · Daily requests histogram</strong>Discrete count distribution across 40 working days.</figcaption><img src="docs/screenshots/01-requests-histogram.png" alt="Histogram of daily requests"></figure>
           <figure class="shot"><figcaption><strong>02 · Resolution-time histogram</strong>Continuous times with a clear right-tail outlier.</figcaption><img src="docs/screenshots/02-resolution-histogram.png" alt="Histogram of resolution times"></figure>
@@ -190,6 +206,9 @@
           <figure class="shot"><figcaption><strong>23 · Staffing risk curve</strong>Predictive P(Y ≥ k) for daily capacity planning.</figcaption><img src="docs/screenshots/23-staffing-risk-curve.png" alt="Staffing risk curve"></figure>
           <figure class="shot"><figcaption><strong>24 · Weekly demand forecast</strong>Five-day total request predictive distribution.</figcaption><img src="docs/screenshots/24-weekly-demand-forecast.png" alt="Weekly demand forecast"></figure>
           <figure class="shot"><figcaption><strong>25 · Outlier influence on μ</strong>Student-t μ with vs without the 42-minute case.</figcaption><img src="docs/screenshots/25-outlier-influence-mu.png" alt="Outlier influence"></figure>
+          <figure class="shot"><figcaption><strong>26 · Capacity policy curve</strong>Daily staffing buffer guidance from exceedance probabilities.</figcaption><img src="docs/screenshots/26-capacity-policy-curve.png" alt="Capacity policy curve"></figure>
+          <figure class="shot"><figcaption><strong>27 · Resolution-time SLA coverage</strong>Probability of meeting minute-based service targets.</figcaption><img src="docs/screenshots/27-resolution-sla-coverage.png" alt="SLA coverage"></figure>
+          <figure class="shot"><figcaption><strong>28 · Optimization checklist</strong>Sampler and workflow optimizations for reproducibility.</figcaption><img src="docs/screenshots/28-optimization-checklist.png" alt="Optimization checklist"></figure>
         </div>
       </div>
     </section>
@@ -210,8 +229,8 @@ jupyter notebook notebook/i222327_A01_A_SM.ipynb</pre>
 
   <footer class="footer">
     <div class="wrap">
-      <p><strong>i222327_A01_A_SM</strong> · MT-2002 Statistical Modeling · Instructor: Dr. Muhammad Rizwan</p>
-      <p>Repository: <a href="https://github.com/rohaan2802/i222327_A01_A_SM">github.com/rohaan2802/i222327_A01_A_SM</a></p>
+      <p><strong>Bayesian-Campus-Service-Center-PyMC</strong> · MT-2002 Statistical Modeling · Instructor: Dr. Muhammad Rizwan</p>
+      <p>Repository: <a href="https://github.com/rohaan2802/Bayesian-Campus-Service-Center-PyMC">github.com/rohaan2802/Bayesian-Campus-Service-Center-PyMC</a></p>
     </div>
   </footer>
 </body>

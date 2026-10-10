@@ -1,36 +1,47 @@
-# i222327 — Assignment 1: Bayesian Statistical Modeling with PyMC
+# Bayesian Campus Service Center Analysis (PyMC)
 
+**Assignment file ID:** i222327 · A#01 · Statistical Modeling  
 **Course:** MT-2002 Statistical Modeling  
 **Semester:** Fall 2026  
 **Instructor:** Dr. Muhammad Rizwan  
 **Student ID:** i222327  
+**Repository name:** `Bayesian-Campus-Service-Center-PyMC`
 
 ---
 
 # Live Link
 
-## Project Live Page
-**https://rohaan2802.github.io/i222327_A01_A_SM/**
+> Use these official entry points for the live project, report, source code, and notebook.
+
+## Live Website (GitHub Pages)
+**https://rohaan2802.github.io/Bayesian-Campus-Service-Center-PyMC/**
 
 ## Full Executed Notebook Report
-**https://rohaan2802.github.io/i222327_A01_A_SM/notebook-report.html**
+**https://rohaan2802.github.io/Bayesian-Campus-Service-Center-PyMC/notebook-report.html**
 
 ## GitHub Repository
-**https://github.com/rohaan2802/i222327_A01_A_SM**
+**https://github.com/rohaan2802/Bayesian-Campus-Service-Center-PyMC**
+
+## Source Notebook (.ipynb)
+**https://github.com/rohaan2802/Bayesian-Campus-Service-Center-PyMC/blob/main/notebook/i222327_A01_A_SM.ipynb**
+
+## Screenshot Gallery
+Jump to [Section 12 — Screenshot gallery](#12-screenshot-gallery-28) in this README.
 
 ---
 
 ## 1. Project summary
 
-This repository is a **portfolio-grade, extended** solution for MT-2002 Assignment 1. It analyzes a campus service center using fully Bayesian models in **PyMC**, with diagnostics, predictive checks, formal model comparison, prior sensitivity, outlier-influence analysis, and decision tools for staffing / weekly demand.
+This repository is a **portfolio-grade, extended** solution for MT-2002 Assignment 1. It analyzes a campus service center using fully Bayesian models in **PyMC**, with diagnostics, predictive checks, formal model comparison, prior sensitivity, outlier-influence analysis, staffing/SLA decision tools, and a viva defense card.
 
 The submission contains:
 
 - every required assignment case (A–G / Cases 1–8 + discussion)
-- an **Extension Pack** (Cases 9–15) for professional deepening
+- **Extension Pack A** (Cases 9–15): diagnostics, LOO, sensitivity, influence, weekly demand
+- **Extension Pack B** (Cases 16–20): capacity policy, SLA coverage, optimization checklist, viva card
 - a responsive GitHub Pages landing site
 - a responsive full HTML notebook report
-- **25** labeled screenshots (20 core + 5 enhancement boards)
+- **28** labeled screenshots
 - reproducible dependencies and a fixed random seed (`2026`)
 
 ---
@@ -103,7 +114,7 @@ Key empirical facts from exploratory analysis:
 ## 5. Repository structure
 
 ```text
-i222327_A01_A_SM/
+Bayesian-Campus-Service-Center-PyMC/
 ├── README.md
 ├── LICENSE
 ├── requirements.txt
@@ -114,8 +125,9 @@ i222327_A01_A_SM/
 ├── notebook/i222327_A01_A_SM.ipynb
 ├── assets/css/site.css
 └── docs/
-    ├── screenshots/          # 25 figures
-    └── enhanced_results.json # machine-readable key outputs
+    ├── screenshots/             # 28 figures
+    ├── enhanced_results.json
+    └── decision_extension.json
 ```
 
 ---
@@ -132,7 +144,7 @@ i222327_A01_A_SM/
 7. **Case 7 — ROPE vs 14-minute benchmark**  
 8. **Case 8 + Discussion — Integrated decision**
 
-### Extension pack
+### Extension pack A
 9. Convergence diagnostics  
 10. LOO comparison  
 11. Prior sensitivity  
@@ -140,6 +152,13 @@ i222327_A01_A_SM/
 13. Staffing / weekly tools  
 14. Extended ROPE + dashboard  
 15. Final synthesis  
+
+### Extension pack B
+16. Capacity policy curve  
+17. Resolution-time SLA coverage  
+18. Computational diagnostics snapshot  
+19. Workflow optimization checklist  
+20. Viva / portfolio defense card  
 
 ---
 
@@ -262,7 +281,7 @@ Responsive safeguards:
 
 ---
 
-## 12. Screenshot gallery (25)
+## 12. Screenshot gallery (28)
 
 Headings are placed **above** each screenshot.
 
@@ -397,14 +416,30 @@ With vs without the 42-minute observation; robust likelihood keeps μ stable.
 
 ![25 outlier influence](docs/screenshots/25-outlier-influence-mu.png)
 
+### 26 — Capacity policy curve
+Daily staffing buffer guidance from posterior predictive exceedance probabilities.
+
+![26 capacity policy](docs/screenshots/26-capacity-policy-curve.png)
+
+### 27 — Resolution-time SLA coverage
+Probability of meeting common minute-based service targets under Student-*t*.
+
+![27 sla coverage](docs/screenshots/27-resolution-sla-coverage.png)
+
+### 28 — Optimization checklist
+Sampler/workflow optimizations used for reproducibility and reviewer clarity.
+
+![28 optimization checklist](docs/screenshots/28-optimization-checklist.png)
+
 ---
 
 ## 13. About this GitHub repository
 
 | About field | Value |
 |---|---|
-| Description | MT-2002 Assignment 1: Bayesian demand & resolution-time analysis for a campus service center using PyMC (Poisson/ZIP, Gaussian/Student-t, ROPE, LOO). |
-| Website / Live | https://rohaan2802.github.io/i222327_A01_A_SM/ |
+| Name | `Bayesian-Campus-Service-Center-PyMC` |
+| Description | MT-2002 Bayesian analysis of campus service-center demand and resolution times with PyMC (Poisson/ZIP, Gaussian/Student-t, ROPE, LOO, SLA tools). |
+| Website / Live | https://rohaan2802.github.io/Bayesian-Campus-Service-Center-PyMC/ |
 | Topics | `bayesian-statistics`, `pymc`, `arviz`, `statistical-modeling`, `poisson`, `zero-inflated-poisson`, `student-t`, `rope`, `mcmc`, `jupyter-notebook`, `github-pages`, `python`, `data-analysis`, `posterior-predictive-check`, `mt-2002` |
 
 ---

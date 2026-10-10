@@ -1,0 +1,71 @@
+{
+  "sla_capacity": [
+    {
+      "daily_threshold_k": 0,
+      "P(Y >= k)": 1.0,
+      "recommended_buffer": "High"
+    },
+    {
+      "daily_threshold_k": 1,
+      "P(Y >= k)": 0.949,
+      "recommended_buffer": "High"
+    },
+    {
+      "daily_threshold_k": 2,
+      "P(Y >= k)": 0.779,
+      "recommended_buffer": "High"
+    },
+    {
+      "daily_threshold_k": 3,
+      "P(Y >= k)": 0.571,
+      "recommended_buffer": "High"
+    },
+    {
+      "daily_threshold_k": 4,
+      "P(Y >= k)": 0.332,
+      "recommended_buffer": "Medium"
+    },
+    {
+      "daily_threshold_k": 5,
+      "P(Y >= k)": 0.175,
+      "recommended_buffer": "Low"
+    },
+    {
+      "daily_threshold_k": 6,
+      "P(Y >= k)": 0.088,
+      "recommended_buffer": "Low"
+    },
+    {
+      "daily_threshold_k": 7,
+      "P(Y >= k)": 0.03,
+      "recommended_buffer": "Low"
+    },
+    {
+      "daily_threshold_k": 8,
+      "P(Y >= k)": 0.011,
+      "recommended_buffer": "Low"
+    }
+  ],
+  "sla_time": [
+    {
+      "SLA (minutes)": 12,
+      "P(time <= SLA)": 0.153
+    },
+    {
+      "SLA (minutes)": 14,
+      "P(time <= SLA)": 0.565
+    },
+    {
+      "SLA (minutes)": 16,
+      "P(time <= SLA)": 0.899
+    },
+    {
+      "SLA (minutes)": 20,
+      "P(time <= SLA)": 0.987
+    },
+    {
+      "SLA (minutes)": 30,
+      "P(time <= SLA)": 0.999
+    }
+  ]
+}
