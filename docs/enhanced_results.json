@@ -1,0 +1,192 @@
+{
+  "poisson": {
+    "mean": {
+      "lambda": 2.955
+    },
+    "sd": {
+      "lambda": 0.271
+    },
+    "hdi_3%": {
+      "lambda": 2.462
+    },
+    "hdi_97%": {
+      "lambda": 3.49
+    }
+  },
+  "zip": {
+    "mean": {
+      "psi": 0.793,
+      "lambda": 3.57
+    },
+    "sd": {
+      "psi": 0.068,
+      "lambda": 0.341
+    },
+    "hdi_3%": {
+      "psi": 0.657,
+      "lambda": 2.937
+    },
+    "hdi_97%": {
+      "psi": 0.905,
+      "lambda": 4.195
+    }
+  },
+  "gaussian": {
+    "mean": {
+      "mu": 14.517,
+      "sigma": 5.157
+    },
+    "sd": {
+      "mu": 0.905,
+      "sigma": 0.642
+    },
+    "hdi_3%": {
+      "mu": 12.907,
+      "sigma": 4.039
+    },
+    "hdi_97%": {
+      "mu": 16.254,
+      "sigma": 6.424
+    }
+  },
+  "student": {
+    "mean": {
+      "mu": 13.71,
+      "sigma": 1.359,
+      "nu": 2.965
+    },
+    "sd": {
+      "mu": 0.297,
+      "sigma": 0.242,
+      "nu": 0.89
+    },
+    "hdi_3%": {
+      "mu": 13.135,
+      "sigma": 0.94,
+      "nu": 2.001
+    },
+    "hdi_97%": {
+      "mu": 14.259,
+      "sigma": 1.829,
+      "nu": 4.531
+    }
+  },
+  "loo_count": {
+    "rank": {
+      "ZIP": 0,
+      "Poisson": 1
+    },
+    "elpd_diff": {
+      "ZIP": 0.0,
+      "Poisson": -6.0
+    },
+    "dse": {
+      "ZIP": 0.0,
+      "Poisson": 4.5
+    },
+    "p_worse": {
+      "ZIP": NaN,
+      "Poisson": 0.93
+    },
+    "diag_diff": {
+      "ZIP": "",
+      "Poisson": "N < 100"
+    },
+    "diag_elpd": {
+      "ZIP": "",
+      "Poisson": ""
+    },
+    "p": {
+      "ZIP": 1.9,
+      "Poisson": 1.6
+    },
+    "elpd": {
+      "ZIP": -84.0,
+      "Poisson": -90.0
+    },
+    "se": {
+      "ZIP": 3.6,
+      "Poisson": 5.1
+    },
+    "weight": {
+      "ZIP": 0.87,
+      "Poisson": 0.13
+    }
+  },
+  "loo_cont": {
+    "rank": {
+      "Student-t": 0,
+      "Gaussian": 1
+    },
+    "elpd_diff": {
+      "Student-t": 0.0,
+      "Gaussian": -40.0
+    },
+    "dse": {
+      "Student-t": 0.0,
+      "Gaussian": 12.0
+    },
+    "p_worse": {
+      "Student-t": NaN,
+      "Gaussian": 1.0
+    },
+    "diag_diff": {
+      "Student-t": "",
+      "Gaussian": "N < 100"
+    },
+    "diag_elpd": {
+      "Student-t": "1 k\u0302 > 0.70",
+      "Gaussian": "1 k\u0302 > 0.70"
+    },
+    "p": {
+      "Student-t": 4.8,
+      "Gaussian": 13.3
+    },
+    "elpd": {
+      "Student-t": -80.0,
+      "Gaussian": -120.0
+    },
+    "se": {
+      "Student-t": 12.0,
+      "Gaussian": 23.0
+    },
+    "weight": {
+      "Student-t": 1.0,
+      "Gaussian": 0.0
+    }
+  },
+  "weekly": {
+    "mean_weekly_requests": 14.742,
+    "sd_weekly_requests": 4.195,
+    "hdi_3%": 7.0,
+    "hdi_97%": 22.0,
+    "P(weekly >= 20)": 0.126,
+    "P(weekly >= 25)": 0.02
+  },
+  "rope": [
+    {
+      "ROPE": "[13.0, 15.0]",
+      "mu_hdi_3%": 13.135,
+      "mu_hdi_97%": 14.259,
+      "decision": "Accept practical equivalence"
+    },
+    {
+      "ROPE": "[13.5, 14.5]",
+      "mu_hdi_3%": 13.135,
+      "mu_hdi_97%": 14.259,
+      "decision": "Undecided"
+    },
+    {
+      "ROPE": "[13.8, 14.2]",
+      "mu_hdi_3%": 13.135,
+      "mu_hdi_97%": 14.259,
+      "decision": "Undecided"
+    },
+    {
+      "ROPE": "[12.5, 15.5]",
+      "mu_hdi_3%": 13.135,
+      "mu_hdi_97%": 14.259,
+      "decision": "Accept practical equivalence"
+    }
+  ]
+}
