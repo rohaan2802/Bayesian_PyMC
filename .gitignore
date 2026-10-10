@@ -1,0 +1,9 @@
+._pytensor_cache/
+.pytensor/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+.DS_Store
+Thumbs.db

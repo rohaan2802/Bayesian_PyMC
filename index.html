@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>i222327 | Bayesian Statistical Modeling with PyMC</title>
+  <meta name="description" content="MT-2002 Assignment 1: Bayesian demand and resolution-time analysis for a campus service center using PyMC, ArviZ, and posterior predictive checks.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="#top">i222327 · MT-2002</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#overview">Overview</a>
+        <a href="#models">Models</a>
+        <a href="#results">Results</a>
+        <a href="#gallery">Gallery</a>
+        <a href="notebook-report.html">Full Report</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="meta">
+            <span class="chip">Course: MT-2002 Statistical Modeling</span>
+            <span class="chip">Fall 2026</span>
+            <span class="chip">Student ID: i222327</span>
+          </div>
+          <h1>Bayesian Statistical Modeling with PyMC</h1>
+          <p class="lede">
+            Case study of a campus service center: estimate daily request demand,
+            model resolution times under an outlier, compare Poisson / ZIP and
+            Gaussian / Student-t models, then translate posterior inference into
+            an operational ROPE decision.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="notebook-report.html">Open interactive HTML report</a>
+            <a class="btn btn-secondary" href="https://github.com/rohaan2802/i222327_A01_A_SM">GitHub repository</a>
+            <a class="btn btn-secondary" href="notebook/i222327_A01_A_SM.ipynb">Source notebook</a>
+          </div>
+        </div>
+        <aside class="panel" aria-label="Key findings">
+          <h2>Key findings</h2>
+          <ul class="stat-list">
+            <li><strong>λ ≈ 2.96 / day</strong><span>Poisson posterior mean for typical demand</span></li>
+            <li><strong>ZIP preferred for zeros</strong><span>Observed zero-day rate 20% vs Poisson PPC 5.2%</span></li>
+            <li><strong>μ ≈ 13.7 minutes</strong><span>Student-t typical resolution time</span></li>
+            <li><strong>ROPE undecided at 14 min</strong><span>HDI [13.22, 14.27] vs ROPE [13.5, 14.5]</span></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="overview">
+      <div class="wrap">
+        <h2>Project overview</h2>
+        <p class="section-lead">
+          This repository contains the completed Assignment 1 notebook for
+          MT-2002 Statistical Modeling. The analysis is fully Bayesian and uses
+          PyMC for model construction/sampling with ArviZ for diagnostics and
+          posterior summaries.
+        </p>
+        <div class="grid-3">
+          <article class="card">
+            <h3>Business question</h3>
+            <p>How many requests should the center expect on a typical working day, and how long do selected requests take to resolve?</p>
+          </article>
+          <article class="card">
+            <h3>Data</h3>
+            <p>40 daily request counts and 35 resolution times (minutes), including one unusual 42-minute observation.</p>
+          </article>
+          <article class="card">
+            <h3>Method</h3>
+            <p>Prior specification, MCMC sampling (2 chains), 94% HDIs, posterior predictive checks, and ROPE decisions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="models">
+      <div class="wrap">
+        <h2>Models fitted</h2>
+        <p class="section-lead">Eight modeling cases move from exploratory diagnostics to final operational recommendations.</p>
+        <div class="grid-2">
+          <article class="card">
+            <h3>Count models</h3>
+            <p>Poisson(λ) with Gamma(3,1) prior, then Zero-Inflated Poisson with Beta(2,2) on ψ to account for excess zero-request days.</p>
+          </article>
+          <article class="card">
+            <h3>Continuous models</h3>
+            <p>Gaussian and Student-t likelihoods for resolution time. Student-t reduces the influence of the 42-minute outlier and yields a tighter scale estimate.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="results">
+      <div class="wrap">
+        <h2>Selected numerical results</h2>
+        <p class="section-lead">Values below are taken from the executed notebook outputs (seed 2026).</p>
+        <div style="overflow-x:auto">
+          <table>
+            <thead>
+              <tr>
+                <th>Quantity</th>
+                <th>Estimate</th>
+                <th>Interpretation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Request mean / variance</td>
+                <td>2.95 / 4.82</td>
+                <td>Empirical over-dispersion relative to a pure Poisson assumption</td>
+              </tr>
+              <tr>
+                <td>Poisson λ posterior</td>
+                <td>2.955 · HDI [2.462, 3.490]</td>
+                <td>Baseline expected daily demand</td>
+              </tr>
+              <tr>
+                <td>ZIP ψ / λ</td>
+                <td>0.796 / 3.571</td>
+                <td>Extra zero process improves zero-day calibration</td>
+              </tr>
+              <tr>
+                <td>Gaussian μ / σ</td>
+                <td>14.544 / 5.173</td>
+                <td>Outlier inflates both center and scale</td>
+              </tr>
+              <tr>
+                <td>Student-t μ / σ / ν</td>
+                <td>13.726 / 1.362 / 2.987</td>
+                <td>Preferred continuous model for typical times</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note" style="margin-top:1rem">
+          Full traces, predictive plots, comparison tables, and discussion are in the
+          <a href="notebook-report.html">HTML report</a> and source notebook.
+        </p>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="wrap">
+        <h2>Visual gallery</h2>
+        <p class="section-lead">Twenty project screenshots covering exploratory plots, MCMC diagnostics, model comparison, ROPE analysis, and delivery stack.</p>
+        <div class="grid-2">
+          <figure class="shot"><img src="docs/screenshots/01-requests-histogram.png" alt="Histogram of daily requests"><figcaption><strong>01 · Daily requests histogram</strong>Discrete count distribution across 40 working days.</figcaption></figure>
+          <figure class="shot"><img src="docs/screenshots/02-resolution-histogram.png" alt="Histogram of resolution times"><figcaption><strong>02 · Resolution-time histogram</strong>Continuous times with a clear right-tail outlier.</figcaption></figure>
+          <figure class="shot"><img src="docs/screenshots/03-prior-predictive-counts.png" alt="Prior predictive counts"><figcaption><strong>03 · Prior predictive counts</strong>Checks that Gamma(3,1) yields realistic demand.</figcaption></figure>
+          <figure class="shot"><img src="docs/screenshots/04-poisson-trace.png" alt="Poisson trace plot"><figcaption><strong>04 · Poisson trace</strong>MCMC mixing for λ under the baseline model.</figcaption></figure>
+          <figure class="shot"><img src="docs/screenshots/05-poisson-posterior-lambda.png" alt="Poisson posterior"><figcaption><strong>05 · Poisson posterior for λ</strong>Posterior density after observing the counts.</figcaption></figure>
+          <figure class="shot"><img src="docs/screenshots/06-zip-ppc-compare.png" alt="ZIP posterior predictive comparison"><figcaption><strong>06 · Count PPC comparison</strong>Observed counts versus Poisson and ZIP predictions.</figcaption></figure>
+          <figure class="shot"><img src="docs/screenshots/07-gaussian-trace.png" alt="Gaussian traces"><figcaption><strong>07 · Gaussian traces</strong>Diagnostics for μ and σ.</figcaption></figure>
+          <figure class="shot"><img src="docs/screenshots/08-gaussian-posteriors.png" alt="Gaussian posteriors"><figcaption><strong>08 · Gaussian posteriors</strong>Parameter uncertainty under normal errors.</figcaption></figure>
+          <figure class="shot"><img src="docs/screenshots/09-student-t-posteriors.png" alt="Student-t posteriors"><figcaption><strong>09 · Student-t posteriors</strong>μ, σ, and ν under heavy tails.</figcaption></figure>
+          <figure class="shot"><img src="docs/screenshots/10-continuous-ppc-compare.png" alt="Continuous PPC"><figcaption><strong>10 · Continuous PPC</strong>Gaussian versus Student-t predictive fit.</figcaption></figure>
+          <figure class="shot"><img src="docs/screenshots/11-dataset-overview.png" alt="Dataset overview"><figcaption><strong>11 · Dataset overview</strong>Request series and resolution-time boxplot.</figcaption></figure>
+          <figure class="shot"><img src="docs/screenshots/12-count-diagnostics-cards.png" alt="Count diagnostics"><figcaption><strong>12 · Count diagnostics</strong>Mean, variance, and zero-day summary cards.</figcaption></figure>
+          <figure class="shot"><img src="docs/screenshots/13-poisson-vs-zip-table.png" alt="Poisson vs ZIP table"><figcaption><strong>13 · Poisson vs ZIP</strong>Posterior means and 94% HDIs.</figcaption></figure>
+          <figure class="shot"><img src="docs/screenshots/14-zero-day-ppc-rates.png" alt="Zero day rates"><figcaption><strong>14 · Zero-day PPC rates</strong>ZIP recovers the observed zero frequency.</figcaption></figure>
+          <figure class="shot"><img src="docs/screenshots/15-gaussian-vs-studentt-table.png" alt="Gaussian vs Student-t"><figcaption><strong>15 · Continuous comparison</strong>μ, σ, and ν side by side.</figcaption></figure>
+          <figure class="shot"><img src="docs/screenshots/16-outlier-scale-effect.png" alt="Outlier scale effect"><figcaption><strong>16 · Outlier scale effect</strong>Gaussian σ inflation versus Student-t.</figcaption></figure>
+          <figure class="shot"><img src="docs/screenshots/17-rope-sensitivity-table.png" alt="ROPE sensitivity"><figcaption><strong>17 · ROPE sensitivity</strong>Decisions across three practical intervals.</figcaption></figure>
+          <figure class="shot"><img src="docs/screenshots/18-analysis-workflow.png" alt="Analysis workflow"><figcaption><strong>18 · Analysis workflow</strong>From EDA through ROPE conclusion.</figcaption></figure>
+          <figure class="shot"><img src="docs/screenshots/19-key-conclusions.png" alt="Key conclusions"><figcaption><strong>19 · Key conclusions</strong>Operational takeaways for the service center.</figcaption></figure>
+          <figure class="shot"><img src="docs/screenshots/20-stack-reproducibility.png" alt="Stack and reproducibility"><figcaption><strong>20 · Stack & reproducibility</strong>Libraries, delivery format, and random seed.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>How to run locally</h2>
+        <p class="section-lead">Create a virtual environment, install dependencies, and open the notebook.</p>
+        <div class="card">
+          <pre style="margin:0;white-space:pre-wrap;overflow-wrap:anywhere">python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+jupyter notebook notebook/i222327_A01_A_SM.ipynb</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p><strong>i222327_A01_A_SM</strong> · MT-2002 Statistical Modeling · Instructor: Dr. Muhammad Rizwan</p>
+      <p>Repository: <a href="https://github.com/rohaan2802/i222327_A01_A_SM">github.com/rohaan2802/i222327_A01_A_SM</a></p>
+    </div>
+  </footer>
+</body>
+</html>
