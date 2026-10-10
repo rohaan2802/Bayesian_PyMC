@@ -5,7 +5,7 @@
 **Semester:** Fall 2026  
 **Instructor:** Dr. Muhammad Rizwan  
 **Student ID:** i222327  
-**Repository name:** `Bayesian-Campus-Service-Center-PyMC`
+**Repository name:** `Bayesian-PyMC`
 
 ---
 
@@ -14,19 +14,19 @@
 > Use these official entry points for the live project, report, dashboard, source code, and notebook.
 
 ## Live Website (GitHub Pages)
-**https://rohaan2802.github.io/Bayesian-Campus-Service-Center-PyMC/**
+**https://rohaan2802.github.io/Bayesian-PyMC/**
 
 ## Operations Decision Dashboard
-**https://rohaan2802.github.io/Bayesian-Campus-Service-Center-PyMC/dashboard.html**
+**https://rohaan2802.github.io/Bayesian-PyMC/dashboard.html**
 
 ## Full Executed Notebook Report
-**https://rohaan2802.github.io/Bayesian-Campus-Service-Center-PyMC/notebook-report.html**
+**https://rohaan2802.github.io/Bayesian-PyMC/notebook-report.html**
 
 ## GitHub Repository
-**https://github.com/rohaan2802/Bayesian-Campus-Service-Center-PyMC**
+**https://github.com/rohaan2802/Bayesian-PyMC**
 
 ## Source Notebook (.ipynb)
-**https://github.com/rohaan2802/Bayesian-Campus-Service-Center-PyMC/blob/main/notebook/i222327_A01_A_SM.ipynb**
+**https://github.com/rohaan2802/Bayesian-PyMC/blob/main/notebook/i222327_A01_A_SM.ipynb**
 
 ## Screenshot Gallery
 Jump to [Section 12 — Screenshot gallery](#12-screenshot-gallery-36) in this README.
@@ -120,7 +120,7 @@ Key empirical facts from exploratory analysis:
 ## 5. Repository structure
 
 ```text
-Bayesian-Campus-Service-Center-PyMC/
+Bayesian-PyMC/
 ├── README.md
 ├── LICENSE
 ├── requirements.txt
@@ -509,9 +509,9 @@ Chronological 30/10 train-test stress check for demand forecasting.
 
 | About field | Value |
 |---|---|
-| Name | `Bayesian-Campus-Service-Center-PyMC` |
+| Name | `Bayesian-PyMC` |
 | Description | MT-2002 Bayesian analysis of campus service-center demand and resolution times with PyMC (Poisson/ZIP, Gaussian/Student-t, ROPE, LOO, SLA tools). |
-| Website / Live | https://rohaan2802.github.io/Bayesian-Campus-Service-Center-PyMC/ |
+| Website / Live | https://rohaan2802.github.io/Bayesian-PyMC/ |
 | Topics | `bayesian-statistics`, `pymc`, `arviz`, `statistical-modeling`, `poisson`, `zero-inflated-poisson`, `student-t`, `rope`, `mcmc`, `jupyter-notebook`, `github-pages`, `python`, `data-analysis`, `posterior-predictive-check`, `mt-2002` |
 
 ---
