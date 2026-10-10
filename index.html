@@ -62,7 +62,7 @@
 
     <section id="live-link">
       <div class="wrap">
-        <h2 style="font-size:clamp(2rem,4vw,2.8rem);margin-bottom:0.35rem">Live Link</h2>
+        <h2 style="font-size:clamp(2.4rem,5vw,3.4rem);margin-bottom:0.35rem;letter-spacing:-0.02em">Live Link</h2>
         <p class="section-lead">Official project entry points — website, report, repository, and source notebook.</p>
         <div class="grid-2">
           <article class="card">
@@ -184,44 +184,44 @@
     <section id="gallery">
       <div class="wrap">
         <h2>Visual gallery</h2>
-        <p class="section-lead">Thirty-six project screenshots covering required analysis, extension packs A–C, calibration, utility optimization, and saturation artifacts. Each heading appears above its image.</p>
+        <p class="section-lead">Thirty-six screenshots aligned to the final notebook (Cases 1–30). Each heading is above its image and tagged to the matching case/pack.</p>
         <div class="grid-2">
-          <figure class="shot"><figcaption><strong>01 · Daily requests histogram</strong>Discrete count distribution across 40 working days.</figcaption><img src="docs/screenshots/01-requests-histogram.png" alt="Histogram of daily requests"></figure>
-          <figure class="shot"><figcaption><strong>02 · Resolution-time histogram</strong>Continuous times with a clear right-tail outlier.</figcaption><img src="docs/screenshots/02-resolution-histogram.png" alt="Histogram of resolution times"></figure>
-          <figure class="shot"><figcaption><strong>03 · Prior predictive counts</strong>Checks that Gamma(3,1) yields realistic demand.</figcaption><img src="docs/screenshots/03-prior-predictive-counts.png" alt="Prior predictive counts"></figure>
-          <figure class="shot"><figcaption><strong>04 · Poisson trace</strong>MCMC mixing for λ under the baseline model.</figcaption><img src="docs/screenshots/04-poisson-trace.png" alt="Poisson trace plot"></figure>
-          <figure class="shot"><figcaption><strong>05 · Poisson posterior for λ</strong>Posterior density after observing the counts.</figcaption><img src="docs/screenshots/05-poisson-posterior-lambda.png" alt="Poisson posterior"></figure>
-          <figure class="shot"><figcaption><strong>06 · Count PPC comparison</strong>Observed counts versus Poisson and ZIP predictions.</figcaption><img src="docs/screenshots/06-zip-ppc-compare.png" alt="ZIP posterior predictive comparison"></figure>
-          <figure class="shot"><figcaption><strong>07 · Gaussian traces</strong>Diagnostics for μ and σ.</figcaption><img src="docs/screenshots/07-gaussian-trace.png" alt="Gaussian traces"></figure>
-          <figure class="shot"><figcaption><strong>08 · Gaussian posteriors</strong>Parameter uncertainty under normal errors.</figcaption><img src="docs/screenshots/08-gaussian-posteriors.png" alt="Gaussian posteriors"></figure>
-          <figure class="shot"><figcaption><strong>09 · Student-t posteriors</strong>μ, σ, and ν under heavy tails.</figcaption><img src="docs/screenshots/09-student-t-posteriors.png" alt="Student-t posteriors"></figure>
-          <figure class="shot"><figcaption><strong>10 · Continuous PPC</strong>Gaussian versus Student-t predictive fit.</figcaption><img src="docs/screenshots/10-continuous-ppc-compare.png" alt="Continuous PPC"></figure>
-          <figure class="shot"><figcaption><strong>11 · Dataset overview</strong>Request series and resolution-time boxplot.</figcaption><img src="docs/screenshots/11-dataset-overview.png" alt="Dataset overview"></figure>
-          <figure class="shot"><figcaption><strong>12 · Count diagnostics</strong>Mean, variance, and zero-day summary cards.</figcaption><img src="docs/screenshots/12-count-diagnostics-cards.png" alt="Count diagnostics"></figure>
-          <figure class="shot"><figcaption><strong>13 · Poisson vs ZIP</strong>Posterior means and 94% HDIs.</figcaption><img src="docs/screenshots/13-poisson-vs-zip-table.png" alt="Poisson vs ZIP table"></figure>
-          <figure class="shot"><figcaption><strong>14 · Zero-day PPC rates</strong>ZIP recovers the observed zero frequency.</figcaption><img src="docs/screenshots/14-zero-day-ppc-rates.png" alt="Zero day rates"></figure>
-          <figure class="shot"><figcaption><strong>15 · Continuous comparison</strong>μ, σ, and ν side by side.</figcaption><img src="docs/screenshots/15-gaussian-vs-studentt-table.png" alt="Gaussian vs Student-t"></figure>
-          <figure class="shot"><figcaption><strong>16 · Outlier scale effect</strong>Gaussian σ inflation versus Student-t.</figcaption><img src="docs/screenshots/16-outlier-scale-effect.png" alt="Outlier scale effect"></figure>
-          <figure class="shot"><figcaption><strong>17 · ROPE sensitivity</strong>Decisions across practical intervals.</figcaption><img src="docs/screenshots/17-rope-sensitivity-table.png" alt="ROPE sensitivity"></figure>
-          <figure class="shot"><figcaption><strong>18 · Analysis workflow</strong>From EDA through ROPE conclusion.</figcaption><img src="docs/screenshots/18-analysis-workflow.png" alt="Analysis workflow"></figure>
-          <figure class="shot"><figcaption><strong>19 · Key conclusions</strong>Operational takeaways for the service center.</figcaption><img src="docs/screenshots/19-key-conclusions.png" alt="Key conclusions"></figure>
-          <figure class="shot"><figcaption><strong>20 · Stack & reproducibility</strong>Libraries, delivery format, and random seed.</figcaption><img src="docs/screenshots/20-stack-reproducibility.png" alt="Stack and reproducibility"></figure>
-          <figure class="shot"><figcaption><strong>21 · Enhanced posterior dashboard</strong>λ, ψ, μ, and ν in one stakeholder view.</figcaption><img src="docs/screenshots/21-enhanced-posterior-dashboard.png" alt="Enhanced posterior dashboard"></figure>
-          <figure class="shot"><figcaption><strong>22 · Prior sensitivity for λ</strong>Posterior mean stays stable across Gamma priors.</figcaption><img src="docs/screenshots/22-prior-sensitivity-lambda.png" alt="Prior sensitivity"></figure>
-          <figure class="shot"><figcaption><strong>23 · Staffing risk curve</strong>Predictive P(Y ≥ k) for daily capacity planning.</figcaption><img src="docs/screenshots/23-staffing-risk-curve.png" alt="Staffing risk curve"></figure>
-          <figure class="shot"><figcaption><strong>24 · Weekly demand forecast</strong>Five-day total request predictive distribution.</figcaption><img src="docs/screenshots/24-weekly-demand-forecast.png" alt="Weekly demand forecast"></figure>
-          <figure class="shot"><figcaption><strong>25 · Outlier influence on μ</strong>Student-t μ with vs without the 42-minute case.</figcaption><img src="docs/screenshots/25-outlier-influence-mu.png" alt="Outlier influence"></figure>
-          <figure class="shot"><figcaption><strong>26 · Capacity policy curve</strong>Daily staffing buffer guidance from exceedance probabilities.</figcaption><img src="docs/screenshots/26-capacity-policy-curve.png" alt="Capacity policy curve"></figure>
-          <figure class="shot"><figcaption><strong>27 · Resolution-time SLA coverage</strong>Probability of meeting minute-based service targets.</figcaption><img src="docs/screenshots/27-resolution-sla-coverage.png" alt="SLA coverage"></figure>
-          <figure class="shot"><figcaption><strong>28 · Optimization checklist</strong>Sampler and workflow optimizations for reproducibility.</figcaption><img src="docs/screenshots/28-optimization-checklist.png" alt="Optimization checklist"></figure>
-          <figure class="shot"><figcaption><strong>29 · PIT count models</strong>Calibration histograms for Poisson vs ZIP.</figcaption><img src="docs/screenshots/29-pit-count-models.png" alt="PIT counts"></figure>
-          <figure class="shot"><figcaption><strong>30 · PIT continuous models</strong>Calibration histograms for Gaussian vs Student-t.</figcaption><img src="docs/screenshots/30-pit-continuous-models.png" alt="PIT continuous"></figure>
-          <figure class="shot"><figcaption><strong>31 · Staffing utility curve</strong>Relative-cost optimum at staff level 4.</figcaption><img src="docs/screenshots/31-staffing-utility-curve.png" alt="Utility curve"></figure>
-          <figure class="shot"><figcaption><strong>32 · Weekday hierarchical rates</strong>Partially pooled day-type demand proxy.</figcaption><img src="docs/screenshots/32-weekday-hierarchical-rates.png" alt="Weekday rates"></figure>
-          <figure class="shot"><figcaption><strong>33 · Model comparison weights</strong>ZIP vs Poisson predictive weights.</figcaption><img src="docs/screenshots/33-model-comparison-weights.png" alt="Weights"></figure>
-          <figure class="shot"><figcaption><strong>34 · Executive one-pager</strong>Saturated workflow summary for viva/portfolio.</figcaption><img src="docs/screenshots/34-executive-one-pager.png" alt="Executive"></figure>
-          <figure class="shot"><figcaption><strong>35 · Completeness matrix</strong>Saturation declaration across enhancement surfaces.</figcaption><img src="docs/screenshots/35-completeness-matrix.png" alt="Completeness"></figure>
-          <figure class="shot"><figcaption><strong>36 · Leave-future-out split</strong>Chronological 30/10 train-test demand check.</figcaption><img src="docs/screenshots/36-leave-future-out-split.png" alt="LFO"></figure>
+          <figure class="shot"><figcaption><strong>01 · Case 1 — Requests histogram</strong>Discrete demand across 40 working days.</figcaption><img src="docs/screenshots/01-requests-histogram.png" alt="Requests histogram"></figure>
+          <figure class="shot"><figcaption><strong>02 · Case 1 — Resolution histogram</strong>Includes the 42-minute outlier.</figcaption><img src="docs/screenshots/02-resolution-histogram.png" alt="Resolution histogram"></figure>
+          <figure class="shot"><figcaption><strong>03 · Case 2 — Prior predictive</strong>Poisson prior predictive counts.</figcaption><img src="docs/screenshots/03-prior-predictive-counts.png" alt="Prior predictive"></figure>
+          <figure class="shot"><figcaption><strong>04 · Case 2 — Poisson trace</strong>MCMC diagnostics for λ.</figcaption><img src="docs/screenshots/04-poisson-trace.png" alt="Poisson trace"></figure>
+          <figure class="shot"><figcaption><strong>05 · Case 2 — Poisson posterior</strong>Posterior density for daily demand rate.</figcaption><img src="docs/screenshots/05-poisson-posterior-lambda.png" alt="Poisson posterior"></figure>
+          <figure class="shot"><figcaption><strong>06 · Case 3 — Count PPC</strong>Observed vs Poisson/ZIP predictions.</figcaption><img src="docs/screenshots/06-zip-ppc-compare.png" alt="Count PPC"></figure>
+          <figure class="shot"><figcaption><strong>07 · Case 4 — Gaussian traces</strong>Diagnostics for μ and σ.</figcaption><img src="docs/screenshots/07-gaussian-trace.png" alt="Gaussian traces"></figure>
+          <figure class="shot"><figcaption><strong>08 · Case 4 — Gaussian posteriors</strong>Normal-error parameter uncertainty.</figcaption><img src="docs/screenshots/08-gaussian-posteriors.png" alt="Gaussian posteriors"></figure>
+          <figure class="shot"><figcaption><strong>09 · Case 5 — Student-t posteriors</strong>μ, σ, and ν under heavy tails.</figcaption><img src="docs/screenshots/09-student-t-posteriors.png" alt="Student-t posteriors"></figure>
+          <figure class="shot"><figcaption><strong>10 · Case 6 — Continuous PPC</strong>Gaussian vs Student-t predictive fit.</figcaption><img src="docs/screenshots/10-continuous-ppc-compare.png" alt="Continuous PPC"></figure>
+          <figure class="shot"><figcaption><strong>11 · Cases 1–8 — Dataset overview</strong>Series + boxplot briefing board.</figcaption><img src="docs/screenshots/11-dataset-overview.png" alt="Dataset overview"></figure>
+          <figure class="shot"><figcaption><strong>12 · Case 1 — Count diagnostics</strong>Mean, variance, zero-day summary.</figcaption><img src="docs/screenshots/12-count-diagnostics-cards.png" alt="Count diagnostics"></figure>
+          <figure class="shot"><figcaption><strong>13 · Case 3 — Poisson vs ZIP</strong>Posterior means and 94% HDIs.</figcaption><img src="docs/screenshots/13-poisson-vs-zip-table.png" alt="Poisson vs ZIP"></figure>
+          <figure class="shot"><figcaption><strong>14 · Case 3 — Zero-day PPC rates</strong>ZIP recovers the 20% quiet-day rate.</figcaption><img src="docs/screenshots/14-zero-day-ppc-rates.png" alt="Zero-day rates"></figure>
+          <figure class="shot"><figcaption><strong>15 · Case 6 — Continuous comparison</strong>Gaussian vs Student-t table.</figcaption><img src="docs/screenshots/15-gaussian-vs-studentt-table.png" alt="Continuous comparison"></figure>
+          <figure class="shot"><figcaption><strong>16 · Cases 5–6 — Outlier scale effect</strong>Gaussian σ inflation vs Student-t.</figcaption><img src="docs/screenshots/16-outlier-scale-effect.png" alt="Outlier scale"></figure>
+          <figure class="shot"><figcaption><strong>17 · Case 7 — ROPE sensitivity</strong>Practical equivalence around 14 minutes.</figcaption><img src="docs/screenshots/17-rope-sensitivity-table.png" alt="ROPE"></figure>
+          <figure class="shot"><figcaption><strong>18 · Cases 1–8 — Workflow</strong>EDA to ROPE conclusion path.</figcaption><img src="docs/screenshots/18-analysis-workflow.png" alt="Workflow"></figure>
+          <figure class="shot"><figcaption><strong>19 · Case 8 — Key conclusions</strong>Operational takeaways board.</figcaption><img src="docs/screenshots/19-key-conclusions.png" alt="Conclusions"></figure>
+          <figure class="shot"><figcaption><strong>20 · Reproducibility stack</strong>Libraries, delivery, seed.</figcaption><img src="docs/screenshots/20-stack-reproducibility.png" alt="Stack"></figure>
+          <figure class="shot"><figcaption><strong>21 · Pack A — Posterior dashboard</strong>λ, ψ, μ, ν stakeholder board.</figcaption><img src="docs/screenshots/21-enhanced-posterior-dashboard.png" alt="Dashboard"></figure>
+          <figure class="shot"><figcaption><strong>22 · Case 11 — Prior sensitivity</strong>λ stability across Gamma priors.</figcaption><img src="docs/screenshots/22-prior-sensitivity-lambda.png" alt="Prior sensitivity"></figure>
+          <figure class="shot"><figcaption><strong>23 · Case 13 — Staffing risk</strong>Daily exceedance probabilities.</figcaption><img src="docs/screenshots/23-staffing-risk-curve.png" alt="Staffing risk"></figure>
+          <figure class="shot"><figcaption><strong>24 · Case 13 — Weekly forecast</strong>Five-day total demand distribution.</figcaption><img src="docs/screenshots/24-weekly-demand-forecast.png" alt="Weekly forecast"></figure>
+          <figure class="shot"><figcaption><strong>25 · Case 12 — Outlier influence</strong>Student-t μ with/without 42-min case.</figcaption><img src="docs/screenshots/25-outlier-influence-mu.png" alt="Outlier influence"></figure>
+          <figure class="shot"><figcaption><strong>26 · Case 16 — Capacity policy</strong>Staffing-buffer policy curve.</figcaption><img src="docs/screenshots/26-capacity-policy-curve.png" alt="Capacity policy"></figure>
+          <figure class="shot"><figcaption><strong>27 · Case 17 — SLA coverage</strong>Minute-based service-target probabilities.</figcaption><img src="docs/screenshots/27-resolution-sla-coverage.png" alt="SLA coverage"></figure>
+          <figure class="shot"><figcaption><strong>28 · Case 19 — Optimization checklist</strong>Sampler/workflow reproducibility board.</figcaption><img src="docs/screenshots/28-optimization-checklist.png" alt="Optimization"></figure>
+          <figure class="shot"><figcaption><strong>29 · Case 22 — PIT counts</strong>Calibration for Poisson vs ZIP.</figcaption><img src="docs/screenshots/29-pit-count-models.png" alt="PIT counts"></figure>
+          <figure class="shot"><figcaption><strong>30 · Case 22 — PIT continuous</strong>Calibration for Gaussian vs Student-t.</figcaption><img src="docs/screenshots/30-pit-continuous-models.png" alt="PIT continuous"></figure>
+          <figure class="shot"><figcaption><strong>31 · Case 23 — Staffing utility</strong>Relative-cost optimum at staff = 4.</figcaption><img src="docs/screenshots/31-staffing-utility-curve.png" alt="Utility"></figure>
+          <figure class="shot"><figcaption><strong>32 · Case 24 — Weekday rates</strong>Hierarchical day-type demand proxy.</figcaption><img src="docs/screenshots/32-weekday-hierarchical-rates.png" alt="Weekday"></figure>
+          <figure class="shot"><figcaption><strong>33 · Case 26 — Model weights</strong>ZIP vs Poisson predictive weights.</figcaption><img src="docs/screenshots/33-model-comparison-weights.png" alt="Weights"></figure>
+          <figure class="shot"><figcaption><strong>34 · Case 28 — Executive one-pager</strong>Saturated workflow summary.</figcaption><img src="docs/screenshots/34-executive-one-pager.png" alt="Executive"></figure>
+          <figure class="shot"><figcaption><strong>35 · Case 29 — Completeness matrix</strong>Saturation declaration.</figcaption><img src="docs/screenshots/35-completeness-matrix.png" alt="Completeness"></figure>
+          <figure class="shot"><figcaption><strong>36 · Case 25 — Leave-future-out</strong>Chronological 30/10 train-test split.</figcaption><img src="docs/screenshots/36-leave-future-out-split.png" alt="LFO"></figure>
         </div>
       </div>
     </section>
