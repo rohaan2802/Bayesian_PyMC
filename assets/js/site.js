@@ -1,8 +1,9 @@
 (() => {
   const root = document.documentElement;
+  root.classList.add("js-ready");
   const stored = localStorage.getItem("bsp-theme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  root.setAttribute("data-theme", stored || (prefersDark ? "dark" : "light"));
+  // Default to light for readability unless user already chose
+  root.setAttribute("data-theme", stored || "light");
 
   function syncThemeButton() {
     document.querySelectorAll("[data-theme-toggle]").forEach((btn) => {

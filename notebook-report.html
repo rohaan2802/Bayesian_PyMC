@@ -2,29 +2,26 @@
 
 <html data-theme="light" lang="en">
 <head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/theme.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/theme.css">
 <style>
 html, body { max-width: 100%; overflow-x: hidden; }
 body {
-  font-family: "Source Sans 3", "Segoe UI", sans-serif !important;
-  font-size: 17px !important;
-  line-height: 1.65 !important;
-  background: var(--bg) !important;
-  color: var(--ink) !important;
-  transition: background .3s ease, color .25s ease;
+  font-family: "Segoe UI", Tahoma, Arial, Helvetica, sans-serif !important;
+  font-size: 19px !important;
+  line-height: 1.75 !important;
+  background: var(--bg, #fff) !important;
+  color: var(--ink, #111827) !important;
 }
 #notebook, .jp-Notebook, .container { max-width: 1100px !important; margin: 0 auto !important; }
-h1 { font-size: 2.2rem !important; font-family: "Source Serif 4", Georgia, serif !important; }
-h2 { font-size: 1.75rem !important; font-family: "Source Serif 4", Georgia, serif !important; }
-h3 { font-size: 1.3rem !important; }
-pre, code, .highlight pre { font-size: 15.5px !important; white-space: pre-wrap !important; word-break: break-word !important; }
+h1 { font-size: 2.35rem !important; font-family: Georgia, "Times New Roman", serif !important; color: inherit !important; }
+h2 { font-size: 1.85rem !important; font-family: Georgia, "Times New Roman", serif !important; color: inherit !important; }
+h3 { font-size: 1.4rem !important; color: inherit !important; }
+p, li { font-size: 19px !important; line-height: 1.75 !important; color: inherit !important; }
+pre, code, .highlight pre { font-size: 16.5px !important; white-space: pre-wrap !important; word-break: break-word !important; }
 img, svg, canvas, table { max-width: 100% !important; height: auto !important; }
-.jp-RenderedHTMLCommon table, table.dataframe { display: block; overflow-x: auto; }
-.nb-theme-toolbar a { color: var(--accent); font-weight: 700; text-decoration: none; margin-right: .8rem; }
+.jp-RenderedHTMLCommon table, table.dataframe { display: block; overflow-x: auto; font-size: 16px !important; }
+.nb-theme-toolbar a { color: var(--accent); font-weight: 700; text-decoration: none; margin-right: .85rem; font-size: 1rem; }
 </style>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -7820,12 +7817,21 @@ a.anchor-link {
 </style>
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
+<div class="nb-theme-toolbar">
+  <div>
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="https://github.com/rohaan2802/Bayesian_PyMC">Repo</a>
+  </div>
+  <button class="theme-btn" type="button" data-theme-toggle>Dark theme</button>
+</div>
+<script src="assets/js/site.js"></script>
+
 <main>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=24ebe8fd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<script src="assets/js/site.js"></script>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id="Assignment-1-%E2%80%94-Bayesian-Statistical-Modeling-with-PyMC">Assignment 1 — Bayesian Statistical Modeling with PyMC<a class="anchor-link" href="#Assignment-1-%E2%80%94-Bayesian-Statistical-Modeling-with-PyMC">¶</a></h1><pre><code>**Course:** MT-2002 Statistical Modeling  
@@ -7858,7 +7864,7 @@ This submission keeps every required assignment case and adds an **extended prof
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_hide-input" id="cell-id=f7a496f1">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_hide-input" id="cell-id=9add8df0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7869,25 +7875,54 @@ This submission keeps every required assignment case and adds an **extended prof
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
 <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">"""</span>
 <span class="s2">&lt;style&gt;</span>
-<span class="s2">/* Larger, readable fonts inside Jupyter / exported HTML */</span>
-<span class="s2">.jp-RenderedHTMLCommon, .jp-RenderedMarkdown, .text_cell_render, .markdown-cell {</span>
+<span class="s2">/* High-readability standard fonts for notebook */</span>
+<span class="s2">.jp-RenderedHTMLCommon,</span>
+<span class="s2">.jp-RenderedMarkdown,</span>
+<span class="s2">.text_cell_render,</span>
+<span class="s2">.markdown-cell,</span>
+<span class="s2">.jp-MarkdownOutput {</span>
+<span class="s2">  font-size: 20px !important;</span>
+<span class="s2">  line-height: 1.75 !important;</span>
+<span class="s2">  font-family: "Segoe UI", Tahoma, Arial, Helvetica, sans-serif !important;</span>
+<span class="s2">  color: #111827 !important;</span>
+<span class="s2">}</span>
+<span class="s2">.jp-RenderedHTMLCommon h1, .text_cell_render h1 {</span>
+<span class="s2">  font-size: 2.4rem !important;</span>
+<span class="s2">  line-height: 1.25 !important;</span>
+<span class="s2">  font-family: Georgia, "Times New Roman", Times, serif !important;</span>
+<span class="s2">  font-weight: 700 !important;</span>
+<span class="s2">}</span>
+<span class="s2">.jp-RenderedHTMLCommon h2, .text_cell_render h2 {</span>
+<span class="s2">  font-size: 1.9rem !important;</span>
+<span class="s2">  font-family: Georgia, "Times New Roman", Times, serif !important;</span>
+<span class="s2">  font-weight: 700 !important;</span>
+<span class="s2">}</span>
+<span class="s2">.jp-RenderedHTMLCommon h3, .text_cell_render h3 {</span>
+<span class="s2">  font-size: 1.45rem !important;</span>
+<span class="s2">  font-weight: 700 !important;</span>
+<span class="s2">}</span>
+<span class="s2">.jp-RenderedHTMLCommon h4, .text_cell_render h4 {</span>
+<span class="s2">  font-size: 1.25rem !important;</span>
+<span class="s2">  font-weight: 700 !important;</span>
+<span class="s2">}</span>
+<span class="s2">.jp-RenderedHTMLCommon p, .jp-RenderedHTMLCommon li,</span>
+<span class="s2">.text_cell_render p, .text_cell_render li {</span>
+<span class="s2">  font-size: 20px !important;</span>
+<span class="s2">  line-height: 1.75 !important;</span>
+<span class="s2">}</span>
+<span class="s2">.CodeMirror, .cm-editor, .jp-Editor, .input_area, .highlight pre, pre, code,</span>
+<span class="s2">.jp-CodeCell .jp-Editor, .jp-InputArea-editor {</span>
 <span class="s2">  font-size: 17px !important;</span>
-<span class="s2">  line-height: 1.65 !important;</span>
-<span class="s2">  font-family: "Source Sans 3", "Segoe UI", sans-serif !important;</span>
+<span class="s2">  line-height: 1.6 !important;</span>
+<span class="s2">  font-family: Consolas, "Courier New", monospace !important;</span>
 <span class="s2">}</span>
-<span class="s2">.jp-RenderedHTMLCommon h1, .text_cell_render h1 { font-size: 2.15rem !important; font-family: "Source Serif 4", Georgia, serif !important; }</span>
-<span class="s2">.jp-RenderedHTMLCommon h2, .text_cell_render h2 { font-size: 1.7rem !important; font-family: "Source Serif 4", Georgia, serif !important; }</span>
-<span class="s2">.jp-RenderedHTMLCommon h3, .text_cell_render h3 { font-size: 1.28rem !important; }</span>
-<span class="s2">.jp-RenderedHTMLCommon h4, .text_cell_render h4 { font-size: 1.12rem !important; }</span>
-<span class="s2">.CodeMirror, .cm-editor, .jp-Editor, .input_area, .highlight pre, pre {</span>
-<span class="s2">  font-size: 15.5px !important;</span>
-<span class="s2">  line-height: 1.55 !important;</span>
-<span class="s2">  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;</span>
+<span class="s2">.jp-OutputArea-output, .output_text pre, .output_html, .jp-RenderedText {</span>
+<span class="s2">  font-size: 17px !important;</span>
+<span class="s2">  line-height: 1.6 !important;</span>
 <span class="s2">}</span>
-<span class="s2">.jp-OutputArea-output, .output_text pre, .output_html {</span>
-<span class="s2">  font-size: 15.5px !important;</span>
+<span class="s2">table.dataframe, .jp-RenderedHTMLCommon table {</span>
+<span class="s2">  font-size: 16px !important;</span>
 <span class="s2">}</span>
-<span class="s2">table.dataframe { font-size: 15px !important; }</span>
 <span class="s2">&lt;/style&gt;</span>
 <span class="s2">"""</span><span class="p">))</span>
 </pre></div>
