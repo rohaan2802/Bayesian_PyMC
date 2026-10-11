@@ -9,7 +9,9 @@
   function syncThemeButton() {
     document.querySelectorAll("[data-theme-toggle]").forEach((btn) => {
       const dark = root.getAttribute("data-theme") === "dark";
-      btn.textContent = dark ? "Light theme" : "Dark theme";
+      const label = dark ? "Switch to light theme" : "Switch to dark theme";
+      btn.setAttribute("aria-label", label);
+      btn.setAttribute("title", label);
       btn.setAttribute("aria-pressed", dark ? "true" : "false");
     });
   }
