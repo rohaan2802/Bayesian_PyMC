@@ -2,8 +2,9 @@
   const root = document.documentElement;
   root.classList.add("js-ready");
   const stored = localStorage.getItem("bsp-theme");
-  // Default to light for readability unless user already chose
-  root.setAttribute("data-theme", stored || "light");
+  const fixedTheme = root.hasAttribute("data-fixed-theme");
+  const defaultTheme = root.getAttribute("data-theme") || "dark";
+  if (!fixedTheme) root.setAttribute("data-theme", stored || defaultTheme);
 
   function syncThemeButton() {
     document.querySelectorAll("[data-theme-toggle]").forEach((btn) => {
@@ -15,7 +16,7 @@
 
   document.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-theme-toggle]");
-    if (!btn) return;
+    if (!btn || fixedTheme) return;
     const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
     root.setAttribute("data-theme", next);
     localStorage.setItem("bsp-theme", next);
@@ -55,33 +56,13 @@
     });
   });
 
-  // Count-up KPIs
+  // Keep KPIs exact and readable.
   const counters = document.querySelectorAll("[data-count]");
-  if (counters.length && "IntersectionObserver" in window) {
-    const cio = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const el = entry.target;
-          const target = parseFloat(el.getAttribute("data-count"));
-          const decimals = (el.getAttribute("data-decimals") || "0") | 0;
-          const start = performance.now();
-          const dur = 900;
-          const tick = (now) => {
-            const t = Math.min(1, (now - start) / dur);
-            const val = target * (0.2 + 0.8 * t);
-            el.textContent = val.toFixed(decimals);
-            if (t < 1) requestAnimationFrame(tick);
-            else el.textContent = target.toFixed(decimals);
-          };
-          requestAnimationFrame(tick);
-          cio.unobserve(el);
-        });
-      },
-      { threshold: 0.4 }
-    );
-    counters.forEach((el) => cio.observe(el));
-  }
+  counters.forEach((el) => {
+    const target = parseFloat(el.getAttribute("data-count"));
+    const decimals = (el.getAttribute("data-decimals") || "0") | 0;
+    if (Number.isFinite(target)) el.textContent = target.toFixed(decimals);
+  });
 
   // Search in gallery captions
   const search = document.querySelector("[data-gallery-search]");
