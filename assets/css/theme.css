@@ -392,6 +392,7 @@ section { padding: 1.5rem 0 2.3rem; }
 }
 
 .shot { overflow: hidden; }
+.shot { margin: 0; }
 .shot figcaption {
   padding: 0.95rem 1rem 0.7rem;
   border-bottom: 3px solid var(--line);
@@ -601,5 +602,16 @@ html[data-theme="dark"] .nb-theme-toolbar a {
     width: 44px;
     height: 44px;
     margin-left: auto;
+  }
+  #gallery .wrap,
+  main.wrap {
+    width: min(100% - 0.5rem, var(--max));
+  }
+  .shot figcaption {
+    padding: 0.8rem 0.75rem 0.6rem;
+  }
+  .shot img {
+    width: 100%;
+    max-height: 680px;
   }
 }
