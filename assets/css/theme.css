@@ -280,8 +280,10 @@ section { padding: 1.5rem 0 2.3rem; }
   font-size: 1.12rem;
 }
 .shot img {
+  display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: auto;
+  max-height: 520px;
   object-fit: contain;
   background: var(--img-bg);
 }
@@ -361,19 +363,19 @@ pre {
   word-break: break-word;
 }
 
-/* Keep content visible even if JS is slow/fails */
+/* Soft scroll fade — never hide tall sections (gallery) */
 .reveal {
   opacity: 1;
   transform: none;
 }
 html.js-ready .reveal:not(.in) {
-  opacity: 0.001;
-  transform: translateY(10px);
+  opacity: 0.92;
+  transform: translateY(6px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 html.js-ready .reveal.in {
   opacity: 1;
   transform: none;
-  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 .footer {

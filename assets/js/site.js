@@ -23,7 +23,7 @@
   });
   syncThemeButton();
 
-  // Scroll reveal
+  // Scroll reveal — threshold 0 so tall sections (gallery) still activate
   const reveals = document.querySelectorAll(".reveal");
   if (reveals.length && "IntersectionObserver" in window) {
     const io = new IntersectionObserver(
@@ -35,9 +35,13 @@
           }
         });
       },
-      { threshold: 0.12 }
+      { threshold: 0, rootMargin: "0px 0px -8% 0px" }
     );
-    reveals.forEach((el) => io.observe(el));
+    reveals.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) el.classList.add("in");
+      else io.observe(el);
+    });
   } else {
     reveals.forEach((el) => el.classList.add("in"));
   }
