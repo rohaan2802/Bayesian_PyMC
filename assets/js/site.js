@@ -26,6 +26,24 @@
   });
   syncThemeButton();
 
+  document.querySelectorAll("[data-menu-toggle]").forEach((button) => {
+    const header = button.closest(".topbar");
+    const nav = header?.querySelector(".nav");
+    button.addEventListener("click", () => {
+      const open = !header.classList.contains("menu-open");
+      header.classList.toggle("menu-open", open);
+      button.setAttribute("aria-expanded", open ? "true" : "false");
+      button.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    });
+    nav?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        header.classList.remove("menu-open");
+        button.setAttribute("aria-expanded", "false");
+        button.setAttribute("aria-label", "Open menu");
+      });
+    });
+  });
+
   // Mark reveals visible immediately (tall gallery broke IntersectionObserver hide)
   document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
 
