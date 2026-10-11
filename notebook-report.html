@@ -44,11 +44,21 @@ img, svg, canvas, table { max-width: 100% !important; height: auto !important; }
   p, li { font-size: 16px !important; line-height: 1.62 !important; }
   pre, code, .highlight pre { font-size: 13px !important; line-height: 1.45 !important; }
   .jp-RenderedHTMLCommon table, table.dataframe {
-    display: table !important;
-    table-layout: fixed !important;
+    display: block !important;
     width: 100% !important;
     max-width: 100% !important;
     font-size: 11px !important;
+    overflow: visible !important;
+  }
+  .jp-RenderedHTMLCommon thead,
+  table.dataframe thead,
+  .jp-RenderedHTMLCommon tbody,
+  table.dataframe tbody { display: block !important; width: 100% !important; }
+  .jp-RenderedHTMLCommon tr,
+  table.dataframe tr {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(74px, 1fr)) !important;
+    width: 100% !important;
   }
   .jp-RenderedHTMLCommon th,
   .jp-RenderedHTMLCommon td,
@@ -60,6 +70,8 @@ img, svg, canvas, table { max-width: 100% !important; height: auto !important; }
     padding: 0.38rem 0.3rem !important;
     min-width: 0 !important;
   }
+  .jp-RenderedHTMLCommon th,
+  table.dataframe th { font-weight: 800 !important; }
   .jp-RenderedImage img, .jp-OutputArea-output img { display: block !important; margin-inline: auto !important; }
 }
 </style>
