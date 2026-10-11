@@ -23,28 +23,8 @@
   });
   syncThemeButton();
 
-  // Scroll reveal — threshold 0 so tall sections (gallery) still activate
-  const reveals = document.querySelectorAll(".reveal");
-  if (reveals.length && "IntersectionObserver" in window) {
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in");
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0, rootMargin: "0px 0px -8% 0px" }
-    );
-    reveals.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) el.classList.add("in");
-      else io.observe(el);
-    });
-  } else {
-    reveals.forEach((el) => el.classList.add("in"));
-  }
+  // Mark reveals visible immediately (tall gallery broke IntersectionObserver hide)
+  document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
 
   // Gallery filters
   const filterBtns = document.querySelectorAll("[data-filter]");

@@ -363,17 +363,8 @@ pre {
   word-break: break-word;
 }
 
-/* Soft scroll fade — never hide tall sections (gallery) */
+/* Reveal class kept for layout hooks — content always fully visible */
 .reveal {
-  opacity: 1;
-  transform: none;
-}
-html.js-ready .reveal:not(.in) {
-  opacity: 0.92;
-  transform: translateY(6px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
-}
-html.js-ready .reveal.in {
   opacity: 1;
   transform: none;
 }
