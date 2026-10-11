@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bayesian Campus Service Center Analysis | PyMC</title>
-  <meta name="description" content="MT-2002 Assignment 1: Bayesian demand and resolution-time analysis for a campus service center using PyMC, ArviZ, and posterior predictive checks.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css">
+  <meta name="description" content="MT-2002 Assignment 1: Bayesian demand and resolution-time analysis for a campus service center using PyMC.">
+  <link rel="stylesheet" href="assets/css/theme.css">
 </head>
 <body>
   <header class="topbar">
@@ -17,11 +14,13 @@
       <nav class="nav" aria-label="Primary">
         <a href="#live-link">Live Link</a>
         <a href="#overview">Overview</a>
+        <a href="#assignment">Assignment</a>
         <a href="#models">Models</a>
         <a href="#results">Results</a>
         <a href="#gallery">Gallery</a>
         <a href="dashboard.html">Dashboard</a>
         <a href="notebook-report.html">Full Report</a>
+        <button class="theme-btn" type="button" data-theme-toggle aria-pressed="false">Dark theme</button>
       </nav>
     </div>
   </header>
@@ -29,18 +28,17 @@
   <main id="top">
     <section class="hero">
       <div class="wrap hero-grid">
-        <div>
-          <div class="meta">
+        <div class="reveal">
+          <div class="kicker">
             <span class="chip">Course: MT-2002 Statistical Modeling</span>
             <span class="chip">Fall 2026</span>
             <span class="chip">Student ID: i222327</span>
           </div>
           <h1>Bayesian Statistical Modeling with PyMC</h1>
           <p class="lede">
-            Case study of a campus service center: estimate daily request demand,
-            model resolution times under an outlier, compare Poisson / ZIP and
-            Gaussian / Student-t models, then translate posterior inference into
-            an operational ROPE decision.
+            Campus service-center case study: estimate daily demand, model resolution times under an outlier,
+            compare Poisson/ZIP and Gaussian/Student-t models, then turn posterior inference into ROPE,
+            staffing, and SLA decisions.
           </p>
           <div class="actions">
             <a class="btn btn-primary" href="dashboard.html">Open operations dashboard</a>
@@ -48,22 +46,22 @@
             <a class="btn btn-secondary" href="https://github.com/rohaan2802/Bayesian_PyMC">GitHub repository</a>
           </div>
         </div>
-        <aside class="panel" aria-label="Key findings">
-          <h2>Key findings</h2>
+        <aside class="panel float reveal" aria-label="Key findings">
+          <h2 class="h3" style="text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-size:.95rem">Key findings</h2>
           <ul class="stat-list">
-            <li><strong>λ ≈ 2.96 / day</strong><span>Poisson posterior mean for typical demand</span></li>
+            <li><strong>λ ≈ <span data-count="2.955" data-decimals="3">0</span> / day</strong><span>Poisson posterior mean for typical demand</span></li>
             <li><strong>ZIP preferred for zeros</strong><span>Observed zero-day rate 20% vs Poisson PPC 5.2%</span></li>
-            <li><strong>μ ≈ 13.7 minutes</strong><span>Student-t typical resolution time</span></li>
-            <li><strong>ROPE undecided at 14 min</strong><span>HDI [13.22, 14.27] vs ROPE [13.5, 14.5]</span></li>
+            <li><strong>μ ≈ <span data-count="13.71" data-decimals="2">0</span> minutes</strong><span>Student-t typical resolution time</span></li>
+            <li><strong>Utility-optimal staff = 4</strong><span>Relative-cost minimum request capacity</span></li>
           </ul>
         </aside>
       </div>
     </section>
 
     <section id="live-link">
-      <div class="wrap">
-        <h2 style="font-size:clamp(2.4rem,5vw,3.4rem);margin-bottom:0.35rem;letter-spacing:-0.02em">Live Link</h2>
-        <p class="section-lead">Official project entry points — website, report, repository, and source notebook.</p>
+      <div class="wrap reveal">
+        <h2 style="font-size:clamp(2.4rem,5vw,3.4rem)">Live Link</h2>
+        <p class="section-lead">Official project entry points with clean, readable URLs.</p>
         <div class="grid-2">
           <article class="card">
             <h3>Live Website (GitHub Pages)</h3>
@@ -90,152 +88,164 @@
     </section>
 
     <section id="overview">
-      <div class="wrap">
+      <div class="wrap reveal">
         <h2>Project overview</h2>
-        <p class="section-lead">
-          This repository contains the completed Assignment 1 notebook for
-          MT-2002 Statistical Modeling. The analysis is fully Bayesian and uses
-          PyMC for model construction/sampling with ArviZ for diagnostics and
-          posterior summaries.
-        </p>
+        <p class="section-lead">Completed MT-2002 Assignment 1 notebook with a full professional extension layer for portfolio and viva defense.</p>
         <div class="grid-3">
-          <article class="card">
-            <h3>Business question</h3>
-            <p>How many requests should the center expect on a typical working day, and how long do selected requests take to resolve?</p>
-          </article>
-          <article class="card">
-            <h3>Data</h3>
-            <p>40 daily request counts and 35 resolution times (minutes), including one unusual 42-minute observation.</p>
-          </article>
-          <article class="card">
-            <h3>Method</h3>
-            <p>Prior specification, MCMC sampling (2 chains), 94% HDIs, posterior predictive checks, and ROPE decisions.</p>
-          </article>
+          <article class="card"><h3>Business question</h3><p>How many requests arrive on a typical day, and how long do selected requests take to resolve?</p></article>
+          <article class="card"><h3>Data</h3><p>40 daily request counts and 35 resolution times, including one unusual 42-minute observation.</p></article>
+          <article class="card"><h3>Method</h3><p>Bayesian priors, MCMC (2 chains), 94% HDIs, PPC, LOO, ROPE, utility, and calibration tools.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="assignment">
+      <div class="wrap reveal">
+        <h2>Assignment depth — what was required and what we delivered</h2>
+        <p class="section-lead">Interactive case accordion. Open any case to see the required task and the delivered analysis.</p>
+        <div class="accordion">
+          <details open>
+            <summary>Case 1 — Understanding the data</summary>
+            <p>Classify discrete vs continuous variables, compute diagnostics, and produce exploratory histograms for demand and resolution time.</p>
+          </details>
+          <details>
+            <summary>Case 2 — Poisson demand model</summary>
+            <p>Specify Gamma prior for λ, check prior predictive distribution, sample posterior, report mean and 94% HDI.</p>
+          </details>
+          <details>
+            <summary>Case 3 — Zero-inflated Poisson</summary>
+            <p>Test whether zero-request days need a separate process; compare Poisson vs ZIP with PPC zero-day rates.</p>
+          </details>
+          <details>
+            <summary>Cases 4–6 — Resolution-time models</summary>
+            <p>Fit Gaussian and Student-t models, compare parameters and predictive fit, explain outlier influence of the 42-minute case.</p>
+          </details>
+          <details>
+            <summary>Cases 7–8 — ROPE and integrated decision</summary>
+            <p>Compare μ against a 14-minute operational benchmark using ROPE rules, then write a management-facing conclusion.</p>
+          </details>
+          <details>
+            <summary>Extension Packs A–C — Cases 9–30</summary>
+            <p>Diagnostics, LOO, sensitivity, influence, staffing/SLA tools, PIT calibration, utility optimization, hierarchical weekday proxy, leave-future-out check, and saturation board.</p>
+          </details>
         </div>
       </div>
     </section>
 
     <section id="models">
-      <div class="wrap">
+      <div class="wrap reveal" data-tabs>
         <h2>Models fitted</h2>
-        <p class="section-lead">Eight modeling cases move from exploratory diagnostics to final operational recommendations.</p>
-        <div class="grid-2">
-          <article class="card">
-            <h3>Count models</h3>
-            <p>Poisson(λ) with Gamma(3,1) prior, then Zero-Inflated Poisson with Beta(2,2) on ψ to account for excess zero-request days.</p>
-          </article>
-          <article class="card">
-            <h3>Continuous models</h3>
-            <p>Gaussian and Student-t likelihoods for resolution time. Student-t reduces the influence of the 42-minute outlier and yields a tighter scale estimate.</p>
-          </article>
+        <p class="section-lead">Switch tabs to inspect count models, continuous models, and decision tools.</p>
+        <div class="tabs">
+          <button class="chip-btn active" type="button" data-tab="count">Count models</button>
+          <button class="chip-btn" type="button" data-tab="cont">Continuous models</button>
+          <button class="chip-btn" type="button" data-tab="decision">Decision tools</button>
+        </div>
+        <div class="tab-panel active" data-tab-panel="count">
+          <div class="grid-2">
+            <article class="card"><h3>Poisson(λ)</h3><p>Gamma(3,1) prior. Baseline daily demand model with posterior λ ≈ 2.955.</p></article>
+            <article class="card"><h3>Zero-Inflated Poisson</h3><p>Beta(2,2) on ψ and Gamma on λ. Recovers the observed 20% zero-day rate.</p></article>
+          </div>
+        </div>
+        <div class="tab-panel" data-tab-panel="cont">
+          <div class="grid-2">
+            <article class="card"><h3>Gaussian</h3><p>Sensitive to the 42-minute outlier; σ inflates to about 5.2 minutes.</p></article>
+            <article class="card"><h3>Student-t</h3><p>Preferred model for typical time: μ ≈ 13.71, σ ≈ 1.36, ν ≈ 2.97.</p></article>
+          </div>
+        </div>
+        <div class="tab-panel" data-tab-panel="decision">
+          <div class="grid-2">
+            <article class="card"><h3>ROPE</h3><p>Against 14 minutes, default ROPE [13.5, 14.5] remains undecided.</p></article>
+            <article class="card"><h3>Utility & SLA</h3><p>Staff optimum = 4 under relative costs; SLA coverage curves for 12–30 minutes.</p></article>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="results">
-      <div class="wrap">
+      <div class="wrap reveal">
         <h2>Selected numerical results</h2>
-        <p class="section-lead">Values below are taken from the executed notebook outputs (seed 2026).</p>
+        <p class="section-lead">Values from the executed notebook outputs (seed 2026).</p>
         <div style="overflow-x:auto">
           <table>
             <thead>
-              <tr>
-                <th>Quantity</th>
-                <th>Estimate</th>
-                <th>Interpretation</th>
-              </tr>
+              <tr><th>Quantity</th><th>Estimate</th><th>Interpretation</th></tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Request mean / variance</td>
-                <td>2.95 / 4.82</td>
-                <td>Empirical over-dispersion relative to a pure Poisson assumption</td>
-              </tr>
-              <tr>
-                <td>Poisson λ posterior</td>
-                <td>2.955 · HDI [2.462, 3.490]</td>
-                <td>Baseline expected daily demand</td>
-              </tr>
-              <tr>
-                <td>ZIP ψ / λ</td>
-                <td>0.796 / 3.571</td>
-                <td>Extra zero process improves zero-day calibration</td>
-              </tr>
-              <tr>
-                <td>Gaussian μ / σ</td>
-                <td>14.544 / 5.173</td>
-                <td>Outlier inflates both center and scale</td>
-              </tr>
-              <tr>
-                <td>Student-t μ / σ / ν</td>
-                <td>13.726 / 1.362 / 2.987</td>
-                <td>Preferred continuous model for typical times</td>
-              </tr>
+              <tr><td>Request mean / variance</td><td>2.95 / 4.82</td><td>Over-dispersion vs pure Poisson</td></tr>
+              <tr><td>Poisson λ posterior</td><td>2.955 · HDI [2.462, 3.490]</td><td>Baseline expected daily demand</td></tr>
+              <tr><td>ZIP ψ / λ</td><td>0.793 / 3.570</td><td>Extra zero process improves quiet-day fit</td></tr>
+              <tr><td>Gaussian μ / σ</td><td>14.517 / 5.157</td><td>Outlier inflates center and scale</td></tr>
+              <tr><td>Student-t μ / σ / ν</td><td>13.710 / 1.359 / 2.965</td><td>Preferred continuous model</td></tr>
+              <tr><td>Utility-optimal staff</td><td>4</td><td>Minimum expected relative cost</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="note" style="margin-top:1rem">
-          Full traces, predictive plots, comparison tables, and discussion are in the
-          <a href="notebook-report.html">HTML report</a> and source notebook.
-        </p>
+        <p class="note" style="margin-top:1rem">Full traces, predictive plots, comparison tables, and discussion are in the <a href="notebook-report.html">HTML report</a> and source notebook.</p>
       </div>
     </section>
 
     <section id="gallery">
-      <div class="wrap">
+      <div class="wrap reveal">
         <h2>Visual gallery</h2>
-        <p class="section-lead">Thirty-six screenshots aligned to the final notebook (Cases 1–30). Each heading is above its image and tagged to the matching case/pack.</p>
-        <div class="grid-2">
-          <figure class="shot"><figcaption><strong>01 · Case 1 — Requests histogram</strong>Discrete demand across 40 working days.</figcaption><img src="docs/screenshots/01-requests-histogram.png" alt="Requests histogram"></figure>
-          <figure class="shot"><figcaption><strong>02 · Case 1 — Resolution histogram</strong>Includes the 42-minute outlier.</figcaption><img src="docs/screenshots/02-resolution-histogram.png" alt="Resolution histogram"></figure>
-          <figure class="shot"><figcaption><strong>03 · Case 2 — Prior predictive</strong>Poisson prior predictive counts.</figcaption><img src="docs/screenshots/03-prior-predictive-counts.png" alt="Prior predictive"></figure>
-          <figure class="shot"><figcaption><strong>04 · Case 2 — Poisson trace</strong>MCMC diagnostics for λ.</figcaption><img src="docs/screenshots/04-poisson-trace.png" alt="Poisson trace"></figure>
-          <figure class="shot"><figcaption><strong>05 · Case 2 — Poisson posterior</strong>Posterior density for daily demand rate.</figcaption><img src="docs/screenshots/05-poisson-posterior-lambda.png" alt="Poisson posterior"></figure>
-          <figure class="shot"><figcaption><strong>06 · Case 3 — Count PPC</strong>Observed vs Poisson/ZIP predictions.</figcaption><img src="docs/screenshots/06-zip-ppc-compare.png" alt="Count PPC"></figure>
-          <figure class="shot"><figcaption><strong>07 · Case 4 — Gaussian traces</strong>Diagnostics for μ and σ.</figcaption><img src="docs/screenshots/07-gaussian-trace.png" alt="Gaussian traces"></figure>
-          <figure class="shot"><figcaption><strong>08 · Case 4 — Gaussian posteriors</strong>Normal-error parameter uncertainty.</figcaption><img src="docs/screenshots/08-gaussian-posteriors.png" alt="Gaussian posteriors"></figure>
-          <figure class="shot"><figcaption><strong>09 · Case 5 — Student-t posteriors</strong>μ, σ, and ν under heavy tails.</figcaption><img src="docs/screenshots/09-student-t-posteriors.png" alt="Student-t posteriors"></figure>
-          <figure class="shot"><figcaption><strong>10 · Case 6 — Continuous PPC</strong>Gaussian vs Student-t predictive fit.</figcaption><img src="docs/screenshots/10-continuous-ppc-compare.png" alt="Continuous PPC"></figure>
-          <figure class="shot"><figcaption><strong>11 · Cases 1–8 — Dataset overview</strong>Series + boxplot briefing board.</figcaption><img src="docs/screenshots/11-dataset-overview.png" alt="Dataset overview"></figure>
-          <figure class="shot"><figcaption><strong>12 · Case 1 — Count diagnostics</strong>Mean, variance, zero-day summary.</figcaption><img src="docs/screenshots/12-count-diagnostics-cards.png" alt="Count diagnostics"></figure>
-          <figure class="shot"><figcaption><strong>13 · Case 3 — Poisson vs ZIP</strong>Posterior means and 94% HDIs.</figcaption><img src="docs/screenshots/13-poisson-vs-zip-table.png" alt="Poisson vs ZIP"></figure>
-          <figure class="shot"><figcaption><strong>14 · Case 3 — Zero-day PPC rates</strong>ZIP recovers the 20% quiet-day rate.</figcaption><img src="docs/screenshots/14-zero-day-ppc-rates.png" alt="Zero-day rates"></figure>
-          <figure class="shot"><figcaption><strong>15 · Case 6 — Continuous comparison</strong>Gaussian vs Student-t table.</figcaption><img src="docs/screenshots/15-gaussian-vs-studentt-table.png" alt="Continuous comparison"></figure>
-          <figure class="shot"><figcaption><strong>16 · Cases 5–6 — Outlier scale effect</strong>Gaussian σ inflation vs Student-t.</figcaption><img src="docs/screenshots/16-outlier-scale-effect.png" alt="Outlier scale"></figure>
-          <figure class="shot"><figcaption><strong>17 · Case 7 — ROPE sensitivity</strong>Practical equivalence around 14 minutes.</figcaption><img src="docs/screenshots/17-rope-sensitivity-table.png" alt="ROPE"></figure>
-          <figure class="shot"><figcaption><strong>18 · Cases 1–8 — Workflow</strong>EDA to ROPE conclusion path.</figcaption><img src="docs/screenshots/18-analysis-workflow.png" alt="Workflow"></figure>
-          <figure class="shot"><figcaption><strong>19 · Case 8 — Key conclusions</strong>Operational takeaways board.</figcaption><img src="docs/screenshots/19-key-conclusions.png" alt="Conclusions"></figure>
-          <figure class="shot"><figcaption><strong>20 · Reproducibility stack</strong>Libraries, delivery, seed.</figcaption><img src="docs/screenshots/20-stack-reproducibility.png" alt="Stack"></figure>
-          <figure class="shot"><figcaption><strong>21 · Pack A — Posterior dashboard</strong>λ, ψ, μ, ν stakeholder board.</figcaption><img src="docs/screenshots/21-enhanced-posterior-dashboard.png" alt="Dashboard"></figure>
-          <figure class="shot"><figcaption><strong>22 · Case 11 — Prior sensitivity</strong>λ stability across Gamma priors.</figcaption><img src="docs/screenshots/22-prior-sensitivity-lambda.png" alt="Prior sensitivity"></figure>
-          <figure class="shot"><figcaption><strong>23 · Case 13 — Staffing risk</strong>Daily exceedance probabilities.</figcaption><img src="docs/screenshots/23-staffing-risk-curve.png" alt="Staffing risk"></figure>
-          <figure class="shot"><figcaption><strong>24 · Case 13 — Weekly forecast</strong>Five-day total demand distribution.</figcaption><img src="docs/screenshots/24-weekly-demand-forecast.png" alt="Weekly forecast"></figure>
-          <figure class="shot"><figcaption><strong>25 · Case 12 — Outlier influence</strong>Student-t μ with/without 42-min case.</figcaption><img src="docs/screenshots/25-outlier-influence-mu.png" alt="Outlier influence"></figure>
-          <figure class="shot"><figcaption><strong>26 · Case 16 — Capacity policy</strong>Staffing-buffer policy curve.</figcaption><img src="docs/screenshots/26-capacity-policy-curve.png" alt="Capacity policy"></figure>
-          <figure class="shot"><figcaption><strong>27 · Case 17 — SLA coverage</strong>Minute-based service-target probabilities.</figcaption><img src="docs/screenshots/27-resolution-sla-coverage.png" alt="SLA coverage"></figure>
-          <figure class="shot"><figcaption><strong>28 · Case 19 — Optimization checklist</strong>Sampler/workflow reproducibility board.</figcaption><img src="docs/screenshots/28-optimization-checklist.png" alt="Optimization"></figure>
-          <figure class="shot"><figcaption><strong>29 · Case 22 — PIT counts</strong>Calibration for Poisson vs ZIP.</figcaption><img src="docs/screenshots/29-pit-count-models.png" alt="PIT counts"></figure>
-          <figure class="shot"><figcaption><strong>30 · Case 22 — PIT continuous</strong>Calibration for Gaussian vs Student-t.</figcaption><img src="docs/screenshots/30-pit-continuous-models.png" alt="PIT continuous"></figure>
-          <figure class="shot"><figcaption><strong>31 · Case 23 — Staffing utility</strong>Relative-cost optimum at staff = 4.</figcaption><img src="docs/screenshots/31-staffing-utility-curve.png" alt="Utility"></figure>
-          <figure class="shot"><figcaption><strong>32 · Case 24 — Weekday rates</strong>Hierarchical day-type demand proxy.</figcaption><img src="docs/screenshots/32-weekday-hierarchical-rates.png" alt="Weekday"></figure>
-          <figure class="shot"><figcaption><strong>33 · Case 26 — Model weights</strong>ZIP vs Poisson predictive weights.</figcaption><img src="docs/screenshots/33-model-comparison-weights.png" alt="Weights"></figure>
-          <figure class="shot"><figcaption><strong>34 · Case 28 — Executive one-pager</strong>Saturated workflow summary.</figcaption><img src="docs/screenshots/34-executive-one-pager.png" alt="Executive"></figure>
-          <figure class="shot"><figcaption><strong>35 · Case 29 — Completeness matrix</strong>Saturation declaration.</figcaption><img src="docs/screenshots/35-completeness-matrix.png" alt="Completeness"></figure>
-          <figure class="shot"><figcaption><strong>36 · Case 25 — Leave-future-out</strong>Chronological 30/10 train-test split.</figcaption><img src="docs/screenshots/36-leave-future-out-split.png" alt="LFO"></figure>
+        <p class="section-lead">Filter by pack or search captions. Headings sit above every screenshot.</p>
+        <div class="filters">
+          <button class="chip-btn active" type="button" data-filter="all">All</button>
+          <button class="chip-btn" type="button" data-filter="required">Required</button>
+          <button class="chip-btn" type="button" data-filter="packa">Pack A</button>
+          <button class="chip-btn" type="button" data-filter="packb">Pack B</button>
+          <button class="chip-btn" type="button" data-filter="packc">Pack C</button>
+          <input data-gallery-search type="search" placeholder="Search gallery..." style="min-width:min(100%,220px);border:1px solid var(--line);border-radius:999px;padding:.45rem .85rem;background:var(--bg-elev);color:var(--ink);font:inherit">
+        </div>
+        <div class="grid-2" id="gallery-grid">
+          <figure class="shot" data-pack="required"><figcaption><strong>01 · Case 1 — Requests histogram</strong>Discrete demand across 40 working days.</figcaption><img src="docs/screenshots/01-requests-histogram.png" alt="Requests histogram" loading="lazy"></figure>
+          <figure class="shot" data-pack="required"><figcaption><strong>02 · Case 1 — Resolution histogram</strong>Includes the 42-minute outlier.</figcaption><img src="docs/screenshots/02-resolution-histogram.png" alt="Resolution histogram" loading="lazy"></figure>
+          <figure class="shot" data-pack="required"><figcaption><strong>03 · Case 2 — Prior predictive</strong>Poisson prior predictive counts.</figcaption><img src="docs/screenshots/03-prior-predictive-counts.png" alt="Prior predictive" loading="lazy"></figure>
+          <figure class="shot" data-pack="required"><figcaption><strong>04 · Case 2 — Poisson trace</strong>MCMC diagnostics for λ.</figcaption><img src="docs/screenshots/04-poisson-trace.png" alt="Poisson trace" loading="lazy"></figure>
+          <figure class="shot" data-pack="required"><figcaption><strong>05 · Case 2 — Poisson posterior</strong>Posterior density for daily demand rate.</figcaption><img src="docs/screenshots/05-poisson-posterior-lambda.png" alt="Poisson posterior" loading="lazy"></figure>
+          <figure class="shot" data-pack="required"><figcaption><strong>06 · Case 3 — Count PPC</strong>Observed vs Poisson/ZIP predictions.</figcaption><img src="docs/screenshots/06-zip-ppc-compare.png" alt="Count PPC" loading="lazy"></figure>
+          <figure class="shot" data-pack="required"><figcaption><strong>07 · Case 4 — Gaussian traces</strong>Diagnostics for μ and σ.</figcaption><img src="docs/screenshots/07-gaussian-trace.png" alt="Gaussian traces" loading="lazy"></figure>
+          <figure class="shot" data-pack="required"><figcaption><strong>08 · Case 4 — Gaussian posteriors</strong>Normal-error parameter uncertainty.</figcaption><img src="docs/screenshots/08-gaussian-posteriors.png" alt="Gaussian posteriors" loading="lazy"></figure>
+          <figure class="shot" data-pack="required"><figcaption><strong>09 · Case 5 — Student-t posteriors</strong>μ, σ, and ν under heavy tails.</figcaption><img src="docs/screenshots/09-student-t-posteriors.png" alt="Student-t posteriors" loading="lazy"></figure>
+          <figure class="shot" data-pack="required"><figcaption><strong>10 · Case 6 — Continuous PPC</strong>Gaussian vs Student-t predictive fit.</figcaption><img src="docs/screenshots/10-continuous-ppc-compare.png" alt="Continuous PPC" loading="lazy"></figure>
+          <figure class="shot" data-pack="required"><figcaption><strong>11 · Cases 1–8 — Dataset overview</strong>Series + boxplot briefing board.</figcaption><img src="docs/screenshots/11-dataset-overview.png" alt="Dataset overview" loading="lazy"></figure>
+          <figure class="shot" data-pack="required"><figcaption><strong>12 · Case 1 — Count diagnostics</strong>Mean, variance, zero-day summary.</figcaption><img src="docs/screenshots/12-count-diagnostics-cards.png" alt="Count diagnostics" loading="lazy"></figure>
+          <figure class="shot" data-pack="required"><figcaption><strong>13 · Case 3 — Poisson vs ZIP</strong>Posterior means and 94% HDIs.</figcaption><img src="docs/screenshots/13-poisson-vs-zip-table.png" alt="Poisson vs ZIP" loading="lazy"></figure>
+          <figure class="shot" data-pack="required"><figcaption><strong>14 · Case 3 — Zero-day PPC rates</strong>ZIP recovers the 20% quiet-day rate.</figcaption><img src="docs/screenshots/14-zero-day-ppc-rates.png" alt="Zero-day rates" loading="lazy"></figure>
+          <figure class="shot" data-pack="required"><figcaption><strong>15 · Case 6 — Continuous comparison</strong>Gaussian vs Student-t table.</figcaption><img src="docs/screenshots/15-gaussian-vs-studentt-table.png" alt="Continuous comparison" loading="lazy"></figure>
+          <figure class="shot" data-pack="required"><figcaption><strong>16 · Cases 5–6 — Outlier scale effect</strong>Gaussian σ inflation vs Student-t.</figcaption><img src="docs/screenshots/16-outlier-scale-effect.png" alt="Outlier scale" loading="lazy"></figure>
+          <figure class="shot" data-pack="required"><figcaption><strong>17 · Case 7 — ROPE sensitivity</strong>Practical equivalence around 14 minutes.</figcaption><img src="docs/screenshots/17-rope-sensitivity-table.png" alt="ROPE" loading="lazy"></figure>
+          <figure class="shot" data-pack="required"><figcaption><strong>18 · Cases 1–8 — Workflow</strong>EDA to ROPE conclusion path.</figcaption><img src="docs/screenshots/18-analysis-workflow.png" alt="Workflow" loading="lazy"></figure>
+          <figure class="shot" data-pack="required"><figcaption><strong>19 · Case 8 — Key conclusions</strong>Operational takeaways board.</figcaption><img src="docs/screenshots/19-key-conclusions.png" alt="Conclusions" loading="lazy"></figure>
+          <figure class="shot" data-pack="required"><figcaption><strong>20 · Reproducibility stack</strong>Libraries, delivery, seed.</figcaption><img src="docs/screenshots/20-stack-reproducibility.png" alt="Stack" loading="lazy"></figure>
+          <figure class="shot" data-pack="packa"><figcaption><strong>21 · Pack A — Posterior dashboard</strong>λ, ψ, μ, ν stakeholder board.</figcaption><img src="docs/screenshots/21-enhanced-posterior-dashboard.png" alt="Dashboard" loading="lazy"></figure>
+          <figure class="shot" data-pack="packa"><figcaption><strong>22 · Case 11 — Prior sensitivity</strong>λ stability across Gamma priors.</figcaption><img src="docs/screenshots/22-prior-sensitivity-lambda.png" alt="Prior sensitivity" loading="lazy"></figure>
+          <figure class="shot" data-pack="packa"><figcaption><strong>23 · Case 13 — Staffing risk</strong>Daily exceedance probabilities.</figcaption><img src="docs/screenshots/23-staffing-risk-curve.png" alt="Staffing risk" loading="lazy"></figure>
+          <figure class="shot" data-pack="packa"><figcaption><strong>24 · Case 13 — Weekly forecast</strong>Five-day total demand distribution.</figcaption><img src="docs/screenshots/24-weekly-demand-forecast.png" alt="Weekly forecast" loading="lazy"></figure>
+          <figure class="shot" data-pack="packa"><figcaption><strong>25 · Case 12 — Outlier influence</strong>Student-t μ with/without 42-min case.</figcaption><img src="docs/screenshots/25-outlier-influence-mu.png" alt="Outlier influence" loading="lazy"></figure>
+          <figure class="shot" data-pack="packb"><figcaption><strong>26 · Case 16 — Capacity policy</strong>Staffing-buffer policy curve.</figcaption><img src="docs/screenshots/26-capacity-policy-curve.png" alt="Capacity policy" loading="lazy"></figure>
+          <figure class="shot" data-pack="packb"><figcaption><strong>27 · Case 17 — SLA coverage</strong>Minute-based service-target probabilities.</figcaption><img src="docs/screenshots/27-resolution-sla-coverage.png" alt="SLA coverage" loading="lazy"></figure>
+          <figure class="shot" data-pack="packb"><figcaption><strong>28 · Case 19 — Optimization checklist</strong>Sampler/workflow reproducibility board.</figcaption><img src="docs/screenshots/28-optimization-checklist.png" alt="Optimization" loading="lazy"></figure>
+          <figure class="shot" data-pack="packc"><figcaption><strong>29 · Case 22 — PIT counts</strong>Calibration for Poisson vs ZIP.</figcaption><img src="docs/screenshots/29-pit-count-models.png" alt="PIT counts" loading="lazy"></figure>
+          <figure class="shot" data-pack="packc"><figcaption><strong>30 · Case 22 — PIT continuous</strong>Calibration for Gaussian vs Student-t.</figcaption><img src="docs/screenshots/30-pit-continuous-models.png" alt="PIT continuous" loading="lazy"></figure>
+          <figure class="shot" data-pack="packc"><figcaption><strong>31 · Case 23 — Staffing utility</strong>Relative-cost optimum at staff = 4.</figcaption><img src="docs/screenshots/31-staffing-utility-curve.png" alt="Utility" loading="lazy"></figure>
+          <figure class="shot" data-pack="packc"><figcaption><strong>32 · Case 24 — Weekday rates</strong>Hierarchical day-type demand proxy.</figcaption><img src="docs/screenshots/32-weekday-hierarchical-rates.png" alt="Weekday" loading="lazy"></figure>
+          <figure class="shot" data-pack="packc"><figcaption><strong>33 · Case 26 — Model weights</strong>ZIP vs Poisson predictive weights.</figcaption><img src="docs/screenshots/33-model-comparison-weights.png" alt="Weights" loading="lazy"></figure>
+          <figure class="shot" data-pack="packc"><figcaption><strong>34 · Case 28 — Executive one-pager</strong>Saturated workflow summary.</figcaption><img src="docs/screenshots/34-executive-one-pager.png" alt="Executive" loading="lazy"></figure>
+          <figure class="shot" data-pack="packc"><figcaption><strong>35 · Case 29 — Completeness matrix</strong>Saturation declaration.</figcaption><img src="docs/screenshots/35-completeness-matrix.png" alt="Completeness" loading="lazy"></figure>
+          <figure class="shot" data-pack="packc"><figcaption><strong>36 · Case 25 — Leave-future-out</strong>Chronological 30/10 train-test split.</figcaption><img src="docs/screenshots/36-leave-future-out-split.png" alt="LFO" loading="lazy"></figure>
         </div>
       </div>
     </section>
 
     <section>
-      <div class="wrap">
+      <div class="wrap reveal">
         <h2>How to run locally</h2>
         <p class="section-lead">Create a virtual environment, install dependencies, and open the notebook.</p>
-        <div class="card">
-          <pre style="margin:0;white-space:pre-wrap;overflow-wrap:anywhere">python -m venv .venv
+        <pre>python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
 jupyter notebook notebook/i222327_A01_A_SM.ipynb</pre>
-        </div>
       </div>
     </section>
   </main>
@@ -246,5 +256,6 @@ jupyter notebook notebook/i222327_A01_A_SM.ipynb</pre>
       <p>Repository: <a href="https://github.com/rohaan2802/Bayesian_PyMC">github.com/rohaan2802/Bayesian_PyMC</a></p>
     </div>
   </footer>
+  <script src="assets/js/site.js"></script>
 </body>
 </html>

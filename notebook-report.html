@@ -1,7 +1,32 @@
 <!DOCTYPE html>
 
-<html lang="en">
-<head><meta charset="utf-8"/>
+<html data-theme="light" lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/theme.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html, body { max-width: 100%; overflow-x: hidden; }
+body {
+  font-family: "Source Sans 3", "Segoe UI", sans-serif !important;
+  font-size: 17px !important;
+  line-height: 1.65 !important;
+  background: var(--bg) !important;
+  color: var(--ink) !important;
+  transition: background .3s ease, color .25s ease;
+}
+#notebook, .jp-Notebook, .container { max-width: 1100px !important; margin: 0 auto !important; }
+h1 { font-size: 2.2rem !important; font-family: "Source Serif 4", Georgia, serif !important; }
+h2 { font-size: 1.75rem !important; font-family: "Source Serif 4", Georgia, serif !important; }
+h3 { font-size: 1.3rem !important; }
+pre, code, .highlight pre { font-size: 15.5px !important; white-space: pre-wrap !important; word-break: break-word !important; }
+img, svg, canvas, table { max-width: 100% !important; height: auto !important; }
+.jp-RenderedHTMLCommon table, table.dataframe { display: block; overflow-x: auto; }
+.nb-theme-toolbar a { color: var(--accent); font-weight: 700; text-decoration: none; margin-right: .8rem; }
+</style>
+<meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Bayesian Campus Service Center | Notebook Report</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
@@ -7829,6 +7854,43 @@ This submission keeps every required assignment case and adds an **extended prof
 - executive dashboard visuals for stakeholders
 
 &gt; **Important:** This is a case-based Bayesian modeling assignment. Do not report numerical results without explaining what they mean in the context of the service center.</code></pre>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_hide-input" id="cell-id=f7a496f1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">"""</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">/* Larger, readable fonts inside Jupyter / exported HTML */</span>
+<span class="s2">.jp-RenderedHTMLCommon, .jp-RenderedMarkdown, .text_cell_render, .markdown-cell {</span>
+<span class="s2">  font-size: 17px !important;</span>
+<span class="s2">  line-height: 1.65 !important;</span>
+<span class="s2">  font-family: "Source Sans 3", "Segoe UI", sans-serif !important;</span>
+<span class="s2">}</span>
+<span class="s2">.jp-RenderedHTMLCommon h1, .text_cell_render h1 { font-size: 2.15rem !important; font-family: "Source Serif 4", Georgia, serif !important; }</span>
+<span class="s2">.jp-RenderedHTMLCommon h2, .text_cell_render h2 { font-size: 1.7rem !important; font-family: "Source Serif 4", Georgia, serif !important; }</span>
+<span class="s2">.jp-RenderedHTMLCommon h3, .text_cell_render h3 { font-size: 1.28rem !important; }</span>
+<span class="s2">.jp-RenderedHTMLCommon h4, .text_cell_render h4 { font-size: 1.12rem !important; }</span>
+<span class="s2">.CodeMirror, .cm-editor, .jp-Editor, .input_area, .highlight pre, pre {</span>
+<span class="s2">  font-size: 15.5px !important;</span>
+<span class="s2">  line-height: 1.55 !important;</span>
+<span class="s2">  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;</span>
+<span class="s2">}</span>
+<span class="s2">.jp-OutputArea-output, .output_text pre, .output_html {</span>
+<span class="s2">  font-size: 15.5px !important;</span>
+<span class="s2">}</span>
+<span class="s2">table.dataframe { font-size: 15px !important; }</span>
+<span class="s2">&lt;/style&gt;</span>
+<span class="s2">"""</span><span class="p">))</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>

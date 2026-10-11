@@ -1,118 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Operations Decision Dashboard | Bayesian Service Center</title>
-  <link rel="stylesheet" href="assets/css/site.css">
-  <style>
-    .live-title{font-size:clamp(2.1rem,5vw,3.2rem);margin:0 0 .4rem;font-family:var(--display)}
-    .kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
-    @media(max-width:900px){.kpi{grid-template-columns:1fr 1fr}}
-    @media(max-width:560px){.kpi{grid-template-columns:1fr}}
-    .kpi .card strong{display:block;font-size:1.5rem;margin-top:.35rem}
-  </style>
+  <link rel="stylesheet" href="assets/css/theme.css">
 </head>
 <body>
-  <header class="topbar"><div class="wrap">
-    <a class="brand" href="index.html">Bayesian Service Center · PyMC</a>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="notebook-report.html">Full Report</a>
-      <a href="https://github.com/rohaan2802/Bayesian_PyMC">Repo</a>
-    </nav>
-  </div></header>
-  <main class="wrap" style="padding:2rem 0 3rem">
-    <h1 class="live-title">Operations Decision Dashboard</h1>
-    <p class="section-lead">Saturated decision view generated from the Bayesian notebook outputs.</p>
-    <div class="kpi">
-      <article class="card"><h3>Poisson λ</h3><strong>2.955</strong><p>Baseline daily demand</p></article>
-      <article class="card"><h3>Best count model</h3><strong>ZIP</strong><p>LOO/weight preferred</p></article>
-      <article class="card"><h3>Student-t μ</h3><strong>13.71 min</strong><p>Typical resolution time</p></article>
-      <article class="card"><h3>Utility-optimal staff</h3><strong>4</strong><p>Relative cost minimum</p></article>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="index.html">Bayesian Service Center · PyMC</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#live-link">Live Link</a>
+        <a href="notebook-report.html">Full Report</a>
+        <a href="https://github.com/rohaan2802/Bayesian_PyMC">Repo</a>
+        <button class="theme-btn" type="button" data-theme-toggle>Dark theme</button>
+      </nav>
     </div>
-    <section style="margin-top:1.5rem">
-      <h2>Calibration & policy visuals</h2>
-      <div class="grid-2" style="margin-top:1rem">
-        <figure class="shot"><figcaption><strong>PIT — count models</strong></figcaption><img src="docs/screenshots/29-pit-count-models.png" alt="PIT counts"></figure>
-        <figure class="shot"><figcaption><strong>PIT — continuous models</strong></figcaption><img src="docs/screenshots/30-pit-continuous-models.png" alt="PIT continuous"></figure>
-        <figure class="shot"><figcaption><strong>Staffing utility</strong></figcaption><img src="docs/screenshots/31-staffing-utility-curve.png" alt="Utility"></figure>
-        <figure class="shot"><figcaption><strong>Weekday hierarchical proxy</strong></figcaption><img src="docs/screenshots/32-weekday-hierarchical-rates.png" alt="Weekday"></figure>
-        <figure class="shot"><figcaption><strong>Model weights</strong></figcaption><img src="docs/screenshots/33-model-comparison-weights.png" alt="Weights"></figure>
-        <figure class="shot"><figcaption><strong>Leave-future-out split</strong></figcaption><img src="docs/screenshots/36-leave-future-out-split.png" alt="LFO"></figure>
-        <figure class="shot"><figcaption><strong>Executive one-pager</strong></figcaption><img src="docs/screenshots/34-executive-one-pager.png" alt="Executive"></figure>
-        <figure class="shot"><figcaption><strong>Completeness matrix</strong></figcaption><img src="docs/screenshots/35-completeness-matrix.png" alt="Complete"></figure>
+  </header>
+
+  <main class="wrap" style="padding:2.2rem 0 3rem">
+    <div class="reveal">
+      <h1 class="h1">Operations Decision Dashboard</h1>
+      <p class="lede">Interactive decision view generated from the final Bayesian notebook outputs. Toggle theme, inspect KPIs, and review calibration/policy visuals.</p>
+    </div>
+
+    <div class="kpi reveal" style="margin-top:1rem">
+      <article class="card"><h3>Poisson λ</h3><strong><span data-count="2.955" data-decimals="3">0</span></strong><p>Baseline daily demand</p></article>
+      <article class="card"><h3>Best count model</h3><strong>ZIP</strong><p>LOO/weight preferred</p></article>
+      <article class="card"><h3>Student-t μ</h3><strong><span data-count="13.71" data-decimals="2">0</span> min</strong><p>Typical resolution time</p></article>
+      <article class="card"><h3>Utility-optimal staff</h3><strong><span data-count="4" data-decimals="0">0</span></strong><p>Relative cost minimum</p></article>
+    </div>
+
+    <section class="reveal" data-tabs style="margin-top:1.6rem">
+      <h2>Policy explorer</h2>
+      <p class="section-lead">Switch between calibration, staffing utility, and completeness views.</p>
+      <div class="tabs">
+        <button class="chip-btn active" type="button" data-tab="cal">Calibration</button>
+        <button class="chip-btn" type="button" data-tab="staff">Staffing & SLA</button>
+        <button class="chip-btn" type="button" data-tab="exec">Executive</button>
+      </div>
+      <div class="tab-panel active" data-tab-panel="cal">
+        <div class="grid-2">
+          <figure class="shot"><figcaption><strong>PIT — count models</strong></figcaption><img src="docs/screenshots/29-pit-count-models.png" alt="PIT counts"></figure>
+          <figure class="shot"><figcaption><strong>PIT — continuous models</strong></figcaption><img src="docs/screenshots/30-pit-continuous-models.png" alt="PIT continuous"></figure>
+          <figure class="shot"><figcaption><strong>Model weights</strong></figcaption><img src="docs/screenshots/33-model-comparison-weights.png" alt="Weights"></figure>
+          <figure class="shot"><figcaption><strong>Leave-future-out split</strong></figcaption><img src="docs/screenshots/36-leave-future-out-split.png" alt="LFO"></figure>
+        </div>
+      </div>
+      <div class="tab-panel" data-tab-panel="staff">
+        <div class="grid-2">
+          <figure class="shot"><figcaption><strong>Staffing utility</strong></figcaption><img src="docs/screenshots/31-staffing-utility-curve.png" alt="Utility"></figure>
+          <figure class="shot"><figcaption><strong>Capacity policy</strong></figcaption><img src="docs/screenshots/26-capacity-policy-curve.png" alt="Capacity"></figure>
+          <figure class="shot"><figcaption><strong>SLA coverage</strong></figcaption><img src="docs/screenshots/27-resolution-sla-coverage.png" alt="SLA"></figure>
+          <figure class="shot"><figcaption><strong>Weekday hierarchical proxy</strong></figcaption><img src="docs/screenshots/32-weekday-hierarchical-rates.png" alt="Weekday"></figure>
+        </div>
+      </div>
+      <div class="tab-panel" data-tab-panel="exec">
+        <div class="grid-2">
+          <figure class="shot"><figcaption><strong>Executive one-pager</strong></figcaption><img src="docs/screenshots/34-executive-one-pager.png" alt="Executive"></figure>
+          <figure class="shot"><figcaption><strong>Completeness matrix</strong></figcaption><img src="docs/screenshots/35-completeness-matrix.png" alt="Complete"></figure>
+        </div>
       </div>
     </section>
-    <section style="margin-top:1.5rem">
+
+    <section class="reveal" style="margin-top:1.4rem">
       <h2>Utility table</h2>
-      <table class="dataframe dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>staff_level</th>
-      <th>E_shortfall</th>
-      <th>P_shortfall</th>
-      <th>expected_total_cost</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>3.077</td>
-      <td>0.954</td>
-      <td>10.770</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>2.123</td>
-      <td>0.824</td>
-      <td>8.431</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>1.300</td>
-      <td>0.589</td>
-      <td>6.548</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>0.711</td>
-      <td>0.365</td>
-      <td>5.487</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>0.345</td>
-      <td>0.192</td>
-      <td>5.209</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>0.153</td>
-      <td>0.090</td>
-      <td>5.537</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>0.064</td>
-      <td>0.042</td>
-      <td>6.222</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>0.022</td>
-      <td>0.015</td>
-      <td>7.077</td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>0.006</td>
-      <td>0.005</td>
-      <td>8.023</td>
-    </tr>
-  </tbody>
-</table>
+      <p class="section-lead">Expected shortfall and relative total cost by staff capacity. Minimum cost at staff level 4.</p>
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr><th>staff_level</th><th>E_shortfall</th><th>P_shortfall</th><th>expected_total_cost</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>3.077</td><td>0.954</td><td>10.770</td></tr>
+            <tr><td>1</td><td>2.123</td><td>0.824</td><td>8.431</td></tr>
+            <tr><td>2</td><td>1.300</td><td>0.589</td><td>6.548</td></tr>
+            <tr><td>3</td><td>0.711</td><td>0.365</td><td>5.487</td></tr>
+            <tr><td>4</td><td>0.345</td><td>0.192</td><td><strong>5.209</strong></td></tr>
+            <tr><td>5</td><td>0.153</td><td>0.090</td><td>5.537</td></tr>
+            <tr><td>6</td><td>0.064</td><td>0.042</td><td>6.222</td></tr>
+            <tr><td>7</td><td>0.022</td><td>0.015</td><td>7.077</td></tr>
+            <tr><td>8</td><td>0.006</td><td>0.005</td><td>8.023</td></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
   </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p><a href="https://rohaan2802.github.io/Bayesian_PyMC/">Live site</a> ·
+         <a href="https://rohaan2802.github.io/Bayesian_PyMC/notebook-report.html">Notebook report</a> ·
+         <a href="https://github.com/rohaan2802/Bayesian_PyMC">GitHub</a></p>
+    </div>
+  </footer>
+  <script src="assets/js/site.js"></script>
 </body>
 </html>
