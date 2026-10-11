@@ -118,12 +118,12 @@ a:hover { color: var(--accent-2); }
 .nav a {
   color: var(--muted);
   text-decoration: none;
-  font-size: clamp(0.78rem, 0.8vw, 0.9rem);
+  font-size: clamp(1rem, 1vw, 1.08rem);
   font-weight: 750;
   line-height: 1;
   white-space: nowrap;
   border-radius: 10px;
-  padding: 0.56rem 0.5rem;
+  padding: 0.54rem 0.46rem;
 }
 .nav a:hover {
   color: var(--ink);
@@ -154,6 +154,9 @@ html[data-theme="dark"] .nav a:hover {
 }
 .theme-icon-btn {
   flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 42px;
   height: 42px;
   padding: 0;
@@ -538,7 +541,7 @@ html[data-theme="dark"] .nb-theme-toolbar a {
     justify-content: flex-start;
   }
   .nav a {
-    font-size: 0.82rem;
+    font-size: 0.96rem;
     padding: 0.52rem 0.48rem;
   }
   .theme-icon-btn {
