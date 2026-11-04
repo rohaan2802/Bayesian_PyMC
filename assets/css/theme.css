@@ -615,3 +615,19 @@ html[data-theme="dark"] .nb-theme-toolbar a {
     max-height: 680px;
   }
 }
+
+/* Uniform screenshot frames: every .shot image gets the same 16:10 frame
+   (full card width). object-fit: scale-down = shrink large images to fit
+   with nothing cropped, never upscale small ones (no blur). */
+.shot img,
+html[data-theme="dark"] .shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: none;
+  aspect-ratio: 16 / 10;
+  object-fit: scale-down;
+  object-position: center;
+  background: var(--img-bg);
+}
