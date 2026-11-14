@@ -96,3 +96,24 @@
     });
   }
 })();
+
+(() => {
+  const button = document.querySelector(".back-to-top");
+  if (!button) return;
+
+  function updateVisibility() {
+    button.hidden = window.scrollY < Math.min(600, window.innerHeight * 0.75);
+  }
+
+  window.addEventListener("scroll", updateVisibility, { passive: true });
+  window.addEventListener("resize", updateVisibility);
+  window.addEventListener("pageshow", updateVisibility);
+  updateVisibility();
+
+  button.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+    });
+  });
+})();
